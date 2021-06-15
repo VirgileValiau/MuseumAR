@@ -52,6 +52,10 @@
         "source": "C:\\Users\\vvali\\Desktop\\cours\\PMR\\Projet\\MuseumAR\\app\\src\\main\\res\\layout\\scan_activity.xml"
     },
     {
+        "merged": "C:\\Users\\vvali\\Desktop\\cours\\PMR\\Projet\\MuseumAR\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_informations.xml.flat",
+        "source": "C:\\Users\\vvali\\Desktop\\cours\\PMR\\Projet\\MuseumAR\\app\\src\\main\\res\\layout\\activity_informations.xml"
+    },
+    {
         "merged": "C:\\Users\\vvali\\Desktop\\cours\\PMR\\Projet\\MuseumAR\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\vvali\\Desktop\\cours\\PMR\\Projet\\MuseumAR\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },

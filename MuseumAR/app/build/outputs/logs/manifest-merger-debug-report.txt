@@ -106,23 +106,27 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\vv
 	android:theme
 		ADDED from C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:20:9-46
 activity#com.ec.MuseumAR.MainActivity
-ADDED from C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:21:9-27:20
+ADDED from C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:21:9-26:20
 	android:name
 		ADDED from C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:21:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:22:9-26:29
+ADDED from C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:22:9-25:29
 action#android.intent.action.MAIN
 ADDED from C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:23:17-69
 	android:name
 		ADDED from C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:23:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:25:17-77
+ADDED from C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:24:17-77
 	android:name
-		ADDED from C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:25:27-74
+		ADDED from C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:24:27-74
 activity#com.ec.MuseumAR.ScanActivity
-ADDED from C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:28:9-49
+ADDED from C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:27:9-49
 	android:name
-		ADDED from C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:28:19-47
+		ADDED from C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:27:19-47
+activity#com.ec.MuseumAR.InformationsActivity
+ADDED from C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:28:9-57
+	android:name
+		ADDED from C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:28:19-55
 uses-sdk
 INJECTED from C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml

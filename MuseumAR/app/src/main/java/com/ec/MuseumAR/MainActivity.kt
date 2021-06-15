@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         // Changer d'activité
         val versScan: Intent
         // Intent explicite
-        versScan = Intent(this@MainActivity, ScanActivity::class.java)
+        versScan = Intent(this@MainActivity, InformationsActivity::class.java)
         startActivity(versScan)
     }
 }
