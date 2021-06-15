@@ -1704,9 +1704,12 @@ drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
+id Auteur
 id BOTTOM_END
 id BOTTOM_START
 id CTRL
+id Date
+id Description
 id FUNCTION
 id META
 id NO_DEBUG
@@ -1717,6 +1720,7 @@ id SHOW_PROGRESS
 id SYM
 id TOP_END
 id TOP_START
+id Titre
 id accelerate
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -2183,6 +2187,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_informations
 layout activity_main
 layout custom_dialog
 layout design_bottom_navigation_item

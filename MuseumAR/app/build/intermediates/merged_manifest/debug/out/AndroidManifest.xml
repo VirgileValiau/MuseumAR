@@ -34,6 +34,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.ec.MuseumAR.ScanActivity" />
+        <activity android:name="com.ec.MuseumAR.InformationsActivity" />
     </application>
 
 </manifest>
