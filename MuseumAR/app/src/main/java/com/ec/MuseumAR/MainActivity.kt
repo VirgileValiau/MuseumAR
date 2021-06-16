@@ -18,14 +18,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        toScan()
     }
 
     private fun toScan(){
         // Changer d'activité
         val versScan: Intent
         // Intent explicite
-        versScan = Intent(this@MainActivity, InformationsActivity::class.java)
+        versScan = Intent(this@MainActivity, ScanActivity::class.java)
         startActivity(versScan)
     }
 }

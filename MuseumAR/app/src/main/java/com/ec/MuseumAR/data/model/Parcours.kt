@@ -9,5 +9,5 @@ data class Parcours(
     private val parcoursId: Long,
     private val theme: String,
     // duree en minute
-    private val duree: Int,
+    private val duree: Int
 )
