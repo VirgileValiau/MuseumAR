@@ -8,7 +8,7 @@ import com.ec.MuseumAR.data.model.Parcours
 @Dao
 interface ParcoursDao {
     @Query("SELECT * FROM parcours")
-    suspend fun getAllParcours(): List<Parcours>
+    suspend fun getAllParcours(): MutableList<Parcours>
 
     @Query("SELECT * FROM parcours WHERE parcoursId = :parcoursId")
     suspend fun getParcoursById(parcoursId: Long): Parcours

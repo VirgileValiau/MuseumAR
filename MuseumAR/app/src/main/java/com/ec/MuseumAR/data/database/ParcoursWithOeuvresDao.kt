@@ -1,9 +1,11 @@
 package com.ec.MuseumAR.data.database
 
+import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Transaction
 import com.ec.MuseumAR.data.model.ParcoursWithOeuvres
 
+@Dao
 interface ParcoursWithOeuvresDao {
     @Transaction
     @Query("SELECT * FROM parcours")

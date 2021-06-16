@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ec.MuseumAR.R
 import com.ec.MuseumAR.data.DataProvider
+import com.ec.MuseumAR.data.DbDataProvider
 import com.ec.MuseumAR.data.adapters.ParcoursAdapter
 import github.com.vikramezhil.dks.speech.Dks
 import github.com.vikramezhil.dks.speech.DksListener
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
 
     var dataSet: MutableList<Parcours>? = null
     val adapter = newAdapter()
+    private lateinit var db:DbDataProvider
 
     private val activityScope = CoroutineScope(
         SupervisorJob() +
@@ -41,6 +43,8 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        db = DbDataProvider(this.application)
 
         val recyclerview = findViewById<RecyclerView>(R.id.recyclerMain)
 
@@ -119,12 +123,12 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
         job?.cancel()
         job = activityScope.launch {
             try {
-                val data = DataProvider.getParcours()
+                val data = db.getAllParcours()
 
                 adapter.showData(data)
 
             } catch (e: Exception) {
-                Toast.makeText(this@MainActivity, "${e.message} ", Toast.LENGTH_SHORT).show()
+                Log.e("database", e.message.toString())
             }
         }
     }

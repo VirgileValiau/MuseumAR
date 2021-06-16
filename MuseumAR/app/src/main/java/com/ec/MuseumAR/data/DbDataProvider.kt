@@ -7,10 +7,10 @@ import com.ec.MuseumAR.data.model.Oeuvre
 import com.ec.MuseumAR.data.model.Parcours
 
 class DbDataProvider (
-    application: Application
+    val application: Application
 ) {
     private val roomDatabase =
-        Room.databaseBuilder(application, MuseumRoomDatabase::class.java, "museum-room-database.db")
+        Room.databaseBuilder(application, MuseumRoomDatabase::class.java, "museum-room-database")
             .createFromAsset("database/test.db")
             .build()
 
