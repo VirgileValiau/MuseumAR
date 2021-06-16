@@ -1,11 +1,28 @@
 package com.ec.MuseumAR
 
+import android.Manifest
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
+import android.preference.PreferenceManager
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import com.ec.MuseumAR.data.model.Parcours
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.ec.MuseumAR.R
+import com.ec.MuseumAR.data.DataProvider
+import com.ec.MuseumAR.data.adapters.ParcoursAdapter
+import kotlinx.coroutines.*
+
+
+class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
 
     var dataSet: MutableList<Parcours>? = null
     val adapter = newAdapter()
@@ -22,6 +39,8 @@ import android.view.MenuItem
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val recyclerview = findViewById<RecyclerView>(R.id.recyclerMain)
 
         if (ContextCompat.checkSelfPermission(
                 this,
@@ -59,6 +78,11 @@ import android.view.MenuItem
 
         dks.continuousSpeechRecognition = true
         dks.startSpeechRecognition()
+
+        refresh()
+
+        recyclerview.adapter = adapter
+        recyclerview.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
     }
 
     private fun toScan(){
@@ -75,14 +99,27 @@ import android.view.MenuItem
 
         val t = Toast.makeText(this, s, Toast.LENGTH_SHORT)
         t.show()
-
-        recyclerview.adapter = adapter
-        recyclerview.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
     }
 
     override fun onResume() {
         super.onResume()
         refresh()
+    }
+
+    private fun refresh() {
+
+
+        job?.cancel()
+        job = activityScope.launch {
+            try {
+                val data = DataProvider.getParcours()
+
+                adapter.showData(data)
+
+            } catch (e: Exception) {
+                Toast.makeText(this@MainActivity, "${e.message} ", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     fun traitementResult(speechResult:String){
@@ -106,21 +143,6 @@ import android.view.MenuItem
                 currentword += speechResult[k].toString()
             }
         }
-    private fun refresh() {
-
-
-        job?.cancel()
-        job = activityScope.launch {
-            try {
-                val data = DataProvider.getParcours()
-
-                adapter.showData(data)
-
-            } catch (e: Exception) {
-                Toast.makeText(this@MainActivity, "${e.message} ", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
 
         var choix :Boolean = false
         var parcours: Boolean = false
@@ -251,7 +273,6 @@ import android.view.MenuItem
         val NO_CORREESPONDANCE = 404
 
     }
-}
 
     private fun newAdapter(): ParcoursAdapter {
 
