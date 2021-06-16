@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\projetandroid\\GitHub\\MuseumAR\\MuseumAR\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
+            "outputFile": "D:\\Scolaire\\Centrale\\G2\\PMR\\MuseumAR\\MuseumAR\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\LEO\\.gradle\\caches\\transforms-2\\files-2.1\\182c6f7fa206fcf9dfa64f742b56b7ac\\appcompat-1.2.0\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\Jules\\.gradle\\caches\\transforms-2\\files-2.1\\edd117a46b734b65200956e019c9a259\\appcompat-1.3.0\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -15,7 +15,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\LEO\\.gradle\\caches\\transforms-2\\files-2.1\\036e7ee8aa9548d79b7d25c6ad0be62d\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\Jules\\.gradle\\caches\\transforms-2\\files-2.1\\d92628789da29d3dbfa2496b8e4145c1\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -34,7 +34,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\LEO\\.gradle\\caches\\transforms-2\\files-2.1\\3181a5a230173e134995bbcc86f80951\\material-1.3.0\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\Jules\\.gradle\\caches\\transforms-2\\files-2.1\\dca81d2e59f2ef6e5c4e3386a5e41173\\material-1.3.0\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,6",
                         "startColumns": "4,4",
