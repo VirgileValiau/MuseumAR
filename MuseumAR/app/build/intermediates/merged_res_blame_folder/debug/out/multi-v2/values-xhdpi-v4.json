@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Scolaire\\Centrale\\G2\\PMR\\MuseumAR\\MuseumAR\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xhdpi-v4\\values-xhdpi-v4.xml",
+            "outputFile": "C:\\Users\\vvali\\Desktop\\cours\\PMR\\Projet\\MuseumAR\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xhdpi-v4\\values-xhdpi-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Jules\\.gradle\\caches\\transforms-2\\files-2.1\\8073973ce49cfbc2b8f38771451c9fc5\\jetified-core-1.9.8\\res\\values-xhdpi-v4\\values-xhdpi-v4.xml",
+                    "source": "C:\\Users\\vvali\\.gradle\\caches\\transforms-2\\files-2.1\\c43f6ec1cabe3ae48a31f934bea747e0\\jetified-core-1.9.8\\res\\values-xhdpi-v4\\values-xhdpi-v4.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

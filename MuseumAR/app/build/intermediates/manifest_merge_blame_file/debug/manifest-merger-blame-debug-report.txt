@@ -6,95 +6,95 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="23"
-8-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml
+8-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="30" />
-9-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml
+9-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-11-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:5:5-76
-11-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:5:22-73
+11-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:5:5-76
+11-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:5:22-73
 12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-12-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:6:5-79
-12-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:6:22-76
+12-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:6:5-79
+12-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:6:22-76
 13    <uses-permission android:name="android.permission.INTERNET" />
-13-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:7:5-67
-13-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:7:22-64
+13-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:7:5-67
+13-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:7:22-64
 14    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-14-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:8:5-75
-14-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:8:22-72
+14-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:8:5-75
+14-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:8:22-72
 15    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-15-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:9:5-80
-15-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:9:22-77
+15-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:9:5-80
+15-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:9:22-77
 16    <uses-permission android:name="android.permission.CAMERA" />
-16-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:10:5-65
-16-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:10:22-62
+16-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:10:5-65
+16-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:10:22-62
 17    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-17-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:11:5-81
-17-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:11:22-78
+17-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:11:5-81
+17-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:11:22-78
 18    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-18-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:12:5-71
-18-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:12:22-68
+18-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:12:5-71
+18-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:12:22-68
 19
 20    <uses-feature
-20-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:14:5-16:35
+20-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:14:5-16:35
 21        android:name="android.hardware.camera"
-21-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:15:9-47
+21-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:15:9-47
 22        android:required="true" />
-22-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:16:9-32
+22-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:16:9-32
 23    <uses-feature android:name="android.hardware.camera.autofocus" />
-23-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:17:5-70
-23-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:17:19-67
+23-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:17:5-70
+23-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:17:19-67
 24
 25    <application
-25-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:20:5-36:19
+25-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:20:5-36:19
 26        android:allowBackup="true"
-26-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:22:9-35
+26-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:22:9-35
 27        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-27-->[androidx.core:core:1.5.0] C:\Users\Jules\.gradle\caches\transforms-2\files-2.1\8ad9781498a53f7bdb0aff7d26128e97\core-1.5.0\AndroidManifest.xml:24:18-86
+27-->[androidx.core:core:1.5.0] C:\Users\vvali\.gradle\caches\transforms-2\files-2.1\8ad9781498a53f7bdb0aff7d26128e97\core-1.5.0\AndroidManifest.xml:24:18-86
 28        android:debuggable="true"
 29        android:extractNativeLibs="false"
 30        android:icon="@mipmap/ic_launcher"
-30-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:23:9-43
+30-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:23:9-43
 31        android:label="@string/app_name"
-31-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:24:9-41
+31-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:24:9-41
 32        android:roundIcon="@mipmap/ic_launcher_round"
-32-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:25:9-54
+32-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:25:9-54
 33        android:supportsRtl="true"
-33-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:26:9-35
+33-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:26:9-35
 34        android:testOnly="true"
 35        android:theme="@style/Theme.MuseumAR"
-35-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:27:9-46
+35-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:27:9-46
 36        android:usesCleartextTraffic="true" >
-36-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:21:9-44
+36-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:21:9-44
 37        <activity android:name="com.ec.MuseumAR.MainActivity" >
-37-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:28:9-33:20
-37-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:28:19-47
+37-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:28:9-33:20
+37-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:28:19-47
 38            <intent-filter>
-38-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:29:9-32:29
+38-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:29:9-32:29
 39                <action android:name="android.intent.action.MAIN" />
-39-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:30:17-69
-39-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:30:25-66
+39-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:30:17-69
+39-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:30:25-66
 40
 41                <category android:name="android.intent.category.LAUNCHER" />
-41-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:31:17-77
-41-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:31:27-74
+41-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:31:17-77
+41-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:31:27-74
 42            </intent-filter>
 43        </activity>
 44        <activity android:name="com.ec.MuseumAR.ScanActivity" />
-44-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:34:9-49
-44-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:34:19-47
+44-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:34:9-49
+44-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:34:19-47
 45        <activity android:name="com.ec.MuseumAR.InformationsActivity" />
-45-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:35:9-57
-45-->D:\Scolaire\Centrale\G2\PMR\MuseumAR\MuseumAR\app\src\main\AndroidManifest.xml:35:19-55
+45-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:35:9-57
+45-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:35:19-55
 46
 47        <service
-47-->[androidx.room:room-runtime:2.3.0] C:\Users\Jules\.gradle\caches\transforms-2\files-2.1\d6e8b8736c8c3856b06ebc128c4d420c\room-runtime-2.3.0\AndroidManifest.xml:25:9-28:40
+47-->[androidx.room:room-runtime:2.3.0] C:\Users\vvali\.gradle\caches\transforms-2\files-2.1\d6e8b8736c8c3856b06ebc128c4d420c\room-runtime-2.3.0\AndroidManifest.xml:25:9-28:40
 48            android:name="androidx.room.MultiInstanceInvalidationService"
-48-->[androidx.room:room-runtime:2.3.0] C:\Users\Jules\.gradle\caches\transforms-2\files-2.1\d6e8b8736c8c3856b06ebc128c4d420c\room-runtime-2.3.0\AndroidManifest.xml:26:13-74
+48-->[androidx.room:room-runtime:2.3.0] C:\Users\vvali\.gradle\caches\transforms-2\files-2.1\d6e8b8736c8c3856b06ebc128c4d420c\room-runtime-2.3.0\AndroidManifest.xml:26:13-74
 49            android:directBootAware="true"
-49-->[androidx.room:room-runtime:2.3.0] C:\Users\Jules\.gradle\caches\transforms-2\files-2.1\d6e8b8736c8c3856b06ebc128c4d420c\room-runtime-2.3.0\AndroidManifest.xml:27:13-43
+49-->[androidx.room:room-runtime:2.3.0] C:\Users\vvali\.gradle\caches\transforms-2\files-2.1\d6e8b8736c8c3856b06ebc128c4d420c\room-runtime-2.3.0\AndroidManifest.xml:27:13-43
 50            android:exported="false" />
-50-->[androidx.room:room-runtime:2.3.0] C:\Users\Jules\.gradle\caches\transforms-2\files-2.1\d6e8b8736c8c3856b06ebc128c4d420c\room-runtime-2.3.0\AndroidManifest.xml:28:13-37
+50-->[androidx.room:room-runtime:2.3.0] C:\Users\vvali\.gradle\caches\transforms-2\files-2.1\d6e8b8736c8c3856b06ebc128c4d420c\room-runtime-2.3.0\AndroidManifest.xml:28:13-37
 51    </application>
 52
 53</manifest>
