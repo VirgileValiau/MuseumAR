@@ -19,6 +19,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ec.MuseumAR.R
 import com.ec.MuseumAR.data.DataProvider
 import com.ec.MuseumAR.data.adapters.ParcoursAdapter
+import github.com.vikramezhil.dks.speech.Dks
+import github.com.vikramezhil.dks.speech.DksListener
 import kotlinx.coroutines.*
 
 
@@ -246,6 +248,8 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
         if(STATE == CHOIX_PARCOURS_1){
             alerter("choix du parcours 1")
             //ToDo( quand on choisis le parcours 1)
+            dks.closeSpeechOperations()
+            toScan()
         }
         else if(STATE == CHOIX_PARCOURS_2){
             alerter("choix du parcours 2")
@@ -283,13 +287,7 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
     }
 
     override fun onItemClicked(parcours: Parcours) {
-        /*
-        A modifier pour un intent vers activité AR
-        val i = Intent(this, ShowListActivity::class.java)
-        i.putExtra("id",liste.id)
-        startActivity(i)
-
-         */
+        //ToDo(ajouter les intent vers scan activity)
     }
 
 
