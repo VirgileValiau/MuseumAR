@@ -1,0 +1,29 @@
+<changelist name="Uncommitted_changes_before_Update_at_22_06_2021_14_55_[Default_Changelist]" date="1624366551520" recycled="false" toDelete="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_06_2021_14_55_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 22/06/2021 14:55 [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="MuseumAR/.gradle/6.5/executionHistory/executionHistory.bin" />
+    <option name="AFTER_PATH" value="MuseumAR/.gradle/6.5/executionHistory/executionHistory.bin" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_06_2021_14_55_[Default_Changelist]/executionHistory.bin" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="MuseumAR/.gradle/6.5/executionHistory/executionHistory.lock" />
+    <option name="AFTER_PATH" value="MuseumAR/.gradle/6.5/executionHistory/executionHistory.lock" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_06_2021_14_55_[Default_Changelist]/executionHistory.lock" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="MuseumAR/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
+    <option name="AFTER_PATH" value="MuseumAR/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_06_2021_14_55_[Default_Changelist]/buildOutputCleanup.lock" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="MuseumAR/.gradle/6.5/fileHashes/fileHashes.bin" />
+    <option name="AFTER_PATH" value="MuseumAR/.gradle/6.5/fileHashes/fileHashes.bin" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_06_2021_14_55_[Default_Changelist]/fileHashes.bin" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="MuseumAR/.gradle/6.5/fileHashes/fileHashes.lock" />
+    <option name="AFTER_PATH" value="MuseumAR/.gradle/6.5/fileHashes/fileHashes.lock" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_06_2021_14_55_[Default_Changelist]/fileHashes.lock" />
+  </binary>
+</changelist>
