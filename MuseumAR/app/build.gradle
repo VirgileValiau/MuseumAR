@@ -35,6 +35,20 @@ android {
 }
 
 dependencies {
+
+    def room_version = "2.3.0"
+    def lifecycle_version = "2.3.1"
+    def activity_version = "1.2.3"
+
+    implementation "androidx.activity:activity-ktx:$activity_version"
+
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation "androidx.room:room-ktx:$room_version"
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:$room_version")
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
     //QR code
     implementation 'me.dm7.barcodescanner:zxing:1.9.8'
     //libs

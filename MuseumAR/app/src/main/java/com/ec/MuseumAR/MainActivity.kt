@@ -19,6 +19,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ec.MuseumAR.R
 import com.ec.MuseumAR.data.DataProvider
 import com.ec.MuseumAR.data.adapters.ParcoursAdapter
+import github.com.vikramezhil.dks.speech.Dks
+import github.com.vikramezhil.dks.speech.DksListener
 import kotlinx.coroutines.*
 
 

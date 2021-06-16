@@ -11,7 +11,7 @@ class DbDataProvider (
 ) {
     private val roomDatabase =
         Room.databaseBuilder(application, MuseumRoomDatabase::class.java, "museum-room-database.db")
-            .createFromAsset("database/test.db")
+            .createFromAsset("database/new.db")
             .build()
 
     private val oeuvresDao = roomDatabase.oeuvreDao()
