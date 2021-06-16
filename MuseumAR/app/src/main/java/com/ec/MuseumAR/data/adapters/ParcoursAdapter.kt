@@ -53,7 +53,7 @@ class ParcoursAdapter (
             }
 
             fun bind(parcours: Parcours) {
-                id.text = parcours.id.toString()
+                id.text = parcours.parcoursId.toString()
                 theme.text = parcours.theme
                 duree.text = "Durée : ${parcours.duree} h"
             }
