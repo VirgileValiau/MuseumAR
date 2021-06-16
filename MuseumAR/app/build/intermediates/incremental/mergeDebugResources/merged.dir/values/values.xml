@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2" xmlns:ns2="http://schemas.android.com/tools">
+    <string-array name="dks_errors">
+        <!--ERROR_NETWORK_TIMEOUT = 1-->
+        <!--ERROR_NETWORK = 2-->
+        <!--ERROR_AUDIO = 3-->
+        <!--ERROR_SERVER = 4-->
+        <!--ERROR_CLIENT = 5-->
+        <!--ERROR_SPEECH_TIMEOUT = 6-->
+        <!--ERROR_NO_MATCH = 7-->
+        <!--ERROR_RECOGNIZER_BUSY = 8-->
+        <!--ERROR_INSUFFICIENT_PERMISSIONS = 9-->
+        <item>Network Timeout</item>
+        <item>Network Error</item>
+        <item>Audio Error</item>
+        <item>Server Error</item>
+        <item>Client Error</item>
+        <item>Speech Timeout</item>
+        <item>No match</item>
+        <item>Speech Recognizer busy</item>
+        <item>Insufficient permissions</item>
+    </string-array>
     <attr format="reference" name="animate_relativeTo"/>
     <attr format="reference" name="appBarLayoutStyle"/>
     <attr format="enum" name="arcMode">
@@ -666,6 +686,8 @@
     <dimen name="item_touch_helper_max_drag_scroll_per_frame">20dp</dimen>
     <dimen name="item_touch_helper_swipe_escape_max_velocity">800dp</dimen>
     <dimen name="item_touch_helper_swipe_escape_velocity">120dp</dimen>
+    <dimen name="iv_ball_height">50dp</dimen>
+    <dimen name="ll_ball_height">100dp</dimen>
     <dimen name="material_clock_display_padding">24dp</dimen>
     <dimen name="material_clock_face_margin_top">44dp</dimen>
     <dimen name="material_clock_hand_center_dot_radius">4dp</dimen>
@@ -906,6 +928,7 @@
     <dimen name="tooltip_vertical_padding">6.5dp</dimen>
     <dimen name="tooltip_y_offset_non_touch">0dp</dimen>
     <dimen name="tooltip_y_offset_touch">16dp</dimen>
+    <dimen name="view_margin">16dp</dimen>
     <item name="material_ic_keyboard_arrow_next_black_24dp" type="drawable">@drawable/material_ic_keyboard_arrow_right_black_24dp</item>
     <item name="material_ic_keyboard_arrow_previous_black_24dp" type="drawable">@drawable/material_ic_keyboard_arrow_left_black_24dp</item>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
@@ -1056,11 +1079,16 @@
     <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
     <string name="bottom_sheet_behavior" translatable="false">com.google.android.material.bottomsheet.BottomSheetBehavior</string>
     <string description="A description of an action that a user of an accessibility service can perform to expand a bottomsheet halfway to its full height. [CHAR LIMIT=25]" name="bottomsheet_action_expand_halfway">Expand halfway</string>
+    <string name="bounce_ball_content_desc">progress</string>
     <string name="character_counter_content_description">Characters entered %1$d of %2$d</string>
     <string name="character_counter_overflowed_content_description">Character limit exceeded %1$d of %2$d</string>
     <string name="character_counter_pattern" translatable="false">%1$d/%2$d</string>
     <string name="chip_text">Chip text</string>
     <string name="clear_text_end_icon_content_description">Clear text</string>
+    <string name="dks_internet_not_enabled">Internet is not enabled</string>
+    <string name="dks_listening">Listening…</string>
+    <string name="dks_mic_permissions_required">Please provide microphone permissions</string>
+    <string name="dks_unknown_error">Unknown error</string>
     <string name="error_icon_content_description">Error</string>
     <string name="exposed_dropdown_menu_content_description">Show dropdown menu</string>
     <string name="fab_transformation_scrim_behavior" translatable="false">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
@@ -1121,12 +1149,15 @@
     <string description="a11y string to indicate this button switches the user to choosing a day [CHAR_LIMIT=NONE]" name="mtrl_picker_toggle_to_day_selection">Tap to switch to selecting a day</string>
     <string description="a11y string to indicate this button changes the input mode to a text field [CHAR_LIMIT=NONE]" name="mtrl_picker_toggle_to_text_input_mode">Switch to text input mode</string>
     <string description="a11y string to indicate this button switches the user to choosing a year [CHAR_LIMIT=NONE]" name="mtrl_picker_toggle_to_year_selection">Tap to switch to selecting a year</string>
+    <string name="negative">Negative</string>
+    <string name="neutral">Neutral</string>
     <string name="next">Next</string>
     <string name="password_toggle_content_description">Show password</string>
     <string name="path_password_eye" translatable="false">M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z</string>
     <string name="path_password_eye_mask_strike_through" translatable="false">M2,4.27 L19.73,22 L22.27,19.46 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_eye_mask_visible" translatable="false">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
+    <string name="positive">Positive</string>
     <string name="previous">Previous</string>
     <string name="search_menu_title">Search</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -3041,6 +3072,10 @@
     </style>
     <style name="CardView.Light">
         <item name="cardBackgroundColor">@color/cardview_light_background</item>
+    </style>
+    <style name="DksFullScreenDialogStyle" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
     </style>
     <style name="EmptyTheme"/>
     <style name="MaterialAlertDialog.MaterialComponents" parent="AlertDialog.AppCompat">
@@ -6354,6 +6389,46 @@
         </attr>
     </declare-styleable>
     <declare-styleable name="CustomAttribute"><attr format="string" name="attributeName"/><attr format="color" name="customColorValue"/><attr format="color" name="customColorDrawableValue"/><attr format="integer" name="customIntegerValue"/><attr format="float" name="customFloatValue"/><attr format="string" name="customStringValue"/><attr format="dimension" name="customDimension"/><attr format="dimension" name="customPixelDimension"/><attr format="boolean" name="customBoolean"/></declare-styleable>
+    <declare-styleable name="DksProgressView">
+        <attr format="color" name="pvBackgroundColor"/>
+        <attr format="float" name="pvBackgroundAlpha"/>
+
+        <attr format="string" name="pvMessage"/>
+        <attr format="color" name="pvMessageColor"/>
+        <attr format="float" name="pvMessageTextSize"/>
+
+        <attr format="string" name="pvPositiveButtonText"/>
+        <attr format="color" name="pvPositiveButtonBackgroundColor"/>
+        <attr format="color" name="pvPositiveButtonTextColor"/>
+        <attr format="integer" name="pvPositiveButtonWidth"/>
+        <attr format="integer" name="pvPositiveButtonHeight"/>
+        <attr format="integer" name="pvPositiveButtonCornerRadius"/>
+        <attr format="float" name="pvPositiveButtonBackgroundAlpha"/>
+        <attr format="float" name="pvPositiveButtonTextSize"/>
+        <attr format="boolean" name="pvPositiveButtonTextCaps"/>
+
+        <attr format="string" name="pvNeutralButtonText"/>
+        <attr format="color" name="pvNeutralButtonBackgroundColor"/>
+        <attr format="color" name="pvNeutralButtonTextColor"/>
+        <attr format="integer" name="pvNeutralButtonWidth"/>
+        <attr format="integer" name="pvNeutralButtonHeight"/>
+        <attr format="integer" name="pvNeutralButtonCornerRadius"/>
+        <attr format="float" name="pvNeutralButtonBackgroundAlpha"/>
+        <attr format="float" name="pvNeutralButtonTextSize"/>
+        <attr format="boolean" name="pvNeutralButtonTextCaps"/>
+
+        <attr format="string" name="pvNegativeButtonText"/>
+        <attr format="color" name="pvNegativeButtonBackgroundColor"/>
+        <attr format="color" name="pvNegativeButtonTextColor"/>
+        <attr format="integer" name="pvNegativeButtonWidth"/>
+        <attr format="integer" name="pvNegativeButtonHeight"/>
+        <attr format="integer" name="pvNegativeButtonCornerRadius"/>
+        <attr format="float" name="pvNegativeButtonBackgroundAlpha"/>
+        <attr format="float" name="pvNegativeButtonTextSize"/>
+        <attr format="boolean" name="pvNegativeButtonTextCaps"/>
+
+        <attr format="reference" name="pvBallColors"/>
+    </declare-styleable>
     <declare-styleable name="DrawerArrowToggle">
         <!-- The drawing color for the bars -->
         <attr format="color" name="color"/>
