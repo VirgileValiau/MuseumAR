@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2" xmlns:ns2="http://schemas.android.com/tools">
+    <string-array name="dks_errors">
+        <!--ERROR_NETWORK_TIMEOUT = 1-->
+        <!--ERROR_NETWORK = 2-->
+        <!--ERROR_AUDIO = 3-->
+        <!--ERROR_SERVER = 4-->
+        <!--ERROR_CLIENT = 5-->
+        <!--ERROR_SPEECH_TIMEOUT = 6-->
+        <!--ERROR_NO_MATCH = 7-->
+        <!--ERROR_RECOGNIZER_BUSY = 8-->
+        <!--ERROR_INSUFFICIENT_PERMISSIONS = 9-->
+        <item>Network Timeout</item>
+        <item>Network Error</item>
+        <item>Audio Error</item>
+        <item>Server Error</item>
+        <item>Client Error</item>
+        <item>Speech Timeout</item>
+        <item>No match</item>
+        <item>Speech Recognizer busy</item>
+        <item>Insufficient permissions</item>
+    </string-array>
     <attr format="reference" name="animate_relativeTo"/>
     <attr format="reference" name="appBarLayoutStyle"/>
     <attr format="enum" name="arcMode">
@@ -482,6 +502,7 @@
     <color name="mtrl_textinput_hovered_box_stroke_color">#DE000000</color>
     <color name="notification_action_color_filter">#ffffffff</color>
     <color name="notification_icon_bg_color">#ff9e9e9e</color>
+    <color name="notification_material_background_media_default_color">#ff424242</color>
     <color name="primary_dark_material_dark">@android:color/black</color>
     <color name="primary_dark_material_light">@color/material_grey_600</color>
     <color name="primary_material_dark">@color/material_grey_900</color>
@@ -507,6 +528,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="tooltip_background_dark">#e6616161</color>
     <color name="tooltip_background_light">#e6FFFFFF</color>
+    <color name="viewfinder_border">#ffafed44</color>
+    <color name="viewfinder_laser">#ffcc0000</color>
+    <color name="viewfinder_mask">#60000000</color>
     <color name="white">#FFFFFFFF</color>
     <dimen name="abc_action_bar_content_inset_material">16dp</dimen>
     <dimen name="abc_action_bar_content_inset_with_nav">72dp</dimen>
@@ -667,6 +691,8 @@
     <dimen name="item_touch_helper_max_drag_scroll_per_frame">20dp</dimen>
     <dimen name="item_touch_helper_swipe_escape_max_velocity">800dp</dimen>
     <dimen name="item_touch_helper_swipe_escape_velocity">120dp</dimen>
+    <dimen name="iv_ball_height">50dp</dimen>
+    <dimen name="ll_ball_height">100dp</dimen>
     <dimen name="material_clock_display_padding">24dp</dimen>
     <dimen name="material_clock_face_margin_top">44dp</dimen>
     <dimen name="material_clock_hand_center_dot_radius">4dp</dimen>
@@ -894,6 +920,10 @@
     <dimen name="notification_subtext_size">13sp</dimen>
     <dimen name="notification_top_pad">10dp</dimen>
     <dimen name="notification_top_pad_large_text">5dp</dimen>
+    <dimen name="subtitle_corner_radius">2dp</dimen>
+    <dimen name="subtitle_outline_width">2dp</dimen>
+    <dimen name="subtitle_shadow_offset">2dp</dimen>
+    <dimen name="subtitle_shadow_radius">2dp</dimen>
     <dimen name="test_mtrl_calendar_day_cornerSize">52dp</dimen>
     <dimen name="tooltip_corner_radius">2dp</dimen>
     <dimen name="tooltip_horizontal_padding">16dp</dimen>
@@ -903,6 +933,7 @@
     <dimen name="tooltip_vertical_padding">6.5dp</dimen>
     <dimen name="tooltip_y_offset_non_touch">0dp</dimen>
     <dimen name="tooltip_y_offset_touch">16dp</dimen>
+    <dimen name="view_margin">16dp</dimen>
     <item name="material_ic_keyboard_arrow_next_black_24dp" type="drawable">@drawable/material_ic_keyboard_arrow_right_black_24dp</item>
     <item name="material_ic_keyboard_arrow_previous_black_24dp" type="drawable">@drawable/material_ic_keyboard_arrow_left_black_24dp</item>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
@@ -1029,6 +1060,8 @@
     <integer name="mtrl_tab_indicator_anim_duration_ms">250</integer>
     <integer name="show_password_duration">200</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
+    <integer name="viewfinder_border_length">60</integer>
+    <integer name="viewfinder_border_width">4</integer>
     <plurals description="Plural form content description for number of new notifications [CHAR_LIMIT=NONE]" name="mtrl_badge_content_description">
     <item quantity="one"><ns1:g id="count">%d</ns1:g> new notification</item>
     <item quantity="other"><ns1:g id="count">%d</ns1:g> new notifications</item>
@@ -1065,11 +1098,16 @@
     <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
     <string name="bottom_sheet_behavior" translatable="false">com.google.android.material.bottomsheet.BottomSheetBehavior</string>
     <string description="A description of an action that a user of an accessibility service can perform to expand a bottomsheet halfway to its full height. [CHAR LIMIT=25]" name="bottomsheet_action_expand_halfway">Expand halfway</string>
+    <string name="bounce_ball_content_desc">progress</string>
     <string name="character_counter_content_description">Characters entered %1$d of %2$d</string>
     <string name="character_counter_overflowed_content_description">Character limit exceeded %1$d of %2$d</string>
     <string name="character_counter_pattern" translatable="false">%1$d/%2$d</string>
     <string name="chip_text">Chip text</string>
     <string name="clear_text_end_icon_content_description">Clear text</string>
+    <string name="dks_internet_not_enabled">Internet is not enabled</string>
+    <string name="dks_listening">Listening…</string>
+    <string name="dks_mic_permissions_required">Please provide microphone permissions</string>
+    <string name="dks_unknown_error">Unknown error</string>
     <string name="error_icon_content_description">Error</string>
     <string name="exposed_dropdown_menu_content_description">Show dropdown menu</string>
     <string name="fab_transformation_scrim_behavior" translatable="false">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
@@ -1132,12 +1170,15 @@
     <string description="a11y string to indicate this button switches the user to choosing a year [CHAR_LIMIT=NONE]" name="mtrl_picker_toggle_to_year_selection">Tap to switch to selecting a year</string>
     <string name="nav_app_bar_navigate_up_description">Navigate up</string>
     <string name="nav_app_bar_open_drawer_description">Open navigation drawer</string>
+    <string name="negative">Negative</string>
+    <string name="neutral">Neutral</string>
     <string name="next">Next</string>
     <string name="password_toggle_content_description">Show password</string>
     <string name="path_password_eye" translatable="false">M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z</string>
     <string name="path_password_eye_mask_strike_through" translatable="false">M2,4.27 L19.73,22 L22.27,19.46 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_eye_mask_visible" translatable="false">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
+    <string name="positive">Positive</string>
     <string name="previous">Previous</string>
     <string name="search_menu_title">Search</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -3071,6 +3112,10 @@
     <style name="CardView.Light">
         <item name="cardBackgroundColor">@color/cardview_light_background</item>
     </style>
+    <style name="DksFullScreenDialogStyle" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
     <style name="EmptyTheme"/>
     <style name="MaterialAlertDialog.MaterialComponents" parent="AlertDialog.AppCompat">
     <item name="android:layout">@layout/mtrl_alert_dialog</item>
@@ -3516,12 +3561,17 @@
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
+    <style name="TextAppearance.Compat.Notification.Info.Media"/>
     <style name="TextAppearance.Compat.Notification.Line2" parent="TextAppearance.Compat.Notification.Info"/>
+    <style name="TextAppearance.Compat.Notification.Line2.Media" parent="TextAppearance.Compat.Notification.Info.Media"/>
+    <style name="TextAppearance.Compat.Notification.Media"/>
     <style name="TextAppearance.Compat.Notification.Time">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
+    <style name="TextAppearance.Compat.Notification.Time.Media"/>
     <style name="TextAppearance.Compat.Notification.Title" parent="@android:style/TextAppearance.StatusBar.EventContent.Title"/>
+    <style name="TextAppearance.Compat.Notification.Title.Media"/>
     <style name="TextAppearance.Design.CollapsingToolbar.Expanded" parent="TextAppearance.AppCompat.Display1">
     <item name="android:textColor">?android:attr/textColorPrimary</item>
   </style>
@@ -5720,6 +5770,7 @@
     <attr format="dimension" name="horizontalOffset"/>
     <attr format="dimension" name="verticalOffset"/>
   </declare-styleable>
+    <declare-styleable name="BarcodeScannerView"><attr format="boolean" name="shouldScaleToFill"/><attr format="boolean" name="laserEnabled"/><attr format="color" name="laserColor"/><attr format="color" name="borderColor"/><attr format="color" name="maskColor"/><attr format="dimension" name="borderWidth"/><attr format="dimension" name="borderLength"/><attr format="boolean" name="roundedCorner"/><attr format="dimension" name="cornerRadius"/><attr format="boolean" name="squaredFinder"/><attr format="float" name="borderAlpha"/><attr format="dimension" name="finderOffset"/></declare-styleable>
     <declare-styleable name="BaseProgressIndicator">
     <!-- Whether the progress indicator should be indeterminate mode. -->
     <attr name="android:indeterminate"/>
@@ -6392,6 +6443,46 @@
     <declare-styleable name="CustomAttribute"><attr format="string" name="attributeName"/><attr format="color" name="customColorValue"/><attr format="color" name="customColorDrawableValue"/><attr format="integer" name="customIntegerValue"/><attr format="float" name="customFloatValue"/><attr format="string" name="customStringValue"/><attr format="dimension" name="customDimension"/><attr format="dimension" name="customPixelDimension"/><attr format="boolean" name="customBoolean"/></declare-styleable>
     <declare-styleable name="DialogFragmentNavigator">
         <attr name="android:name"/>
+    </declare-styleable>
+    <declare-styleable name="DksProgressView">
+        <attr format="color" name="pvBackgroundColor"/>
+        <attr format="float" name="pvBackgroundAlpha"/>
+
+        <attr format="string" name="pvMessage"/>
+        <attr format="color" name="pvMessageColor"/>
+        <attr format="float" name="pvMessageTextSize"/>
+
+        <attr format="string" name="pvPositiveButtonText"/>
+        <attr format="color" name="pvPositiveButtonBackgroundColor"/>
+        <attr format="color" name="pvPositiveButtonTextColor"/>
+        <attr format="integer" name="pvPositiveButtonWidth"/>
+        <attr format="integer" name="pvPositiveButtonHeight"/>
+        <attr format="integer" name="pvPositiveButtonCornerRadius"/>
+        <attr format="float" name="pvPositiveButtonBackgroundAlpha"/>
+        <attr format="float" name="pvPositiveButtonTextSize"/>
+        <attr format="boolean" name="pvPositiveButtonTextCaps"/>
+
+        <attr format="string" name="pvNeutralButtonText"/>
+        <attr format="color" name="pvNeutralButtonBackgroundColor"/>
+        <attr format="color" name="pvNeutralButtonTextColor"/>
+        <attr format="integer" name="pvNeutralButtonWidth"/>
+        <attr format="integer" name="pvNeutralButtonHeight"/>
+        <attr format="integer" name="pvNeutralButtonCornerRadius"/>
+        <attr format="float" name="pvNeutralButtonBackgroundAlpha"/>
+        <attr format="float" name="pvNeutralButtonTextSize"/>
+        <attr format="boolean" name="pvNeutralButtonTextCaps"/>
+
+        <attr format="string" name="pvNegativeButtonText"/>
+        <attr format="color" name="pvNegativeButtonBackgroundColor"/>
+        <attr format="color" name="pvNegativeButtonTextColor"/>
+        <attr format="integer" name="pvNegativeButtonWidth"/>
+        <attr format="integer" name="pvNegativeButtonHeight"/>
+        <attr format="integer" name="pvNegativeButtonCornerRadius"/>
+        <attr format="float" name="pvNegativeButtonBackgroundAlpha"/>
+        <attr format="float" name="pvNegativeButtonTextSize"/>
+        <attr format="boolean" name="pvNegativeButtonTextCaps"/>
+
+        <attr format="reference" name="pvBallColors"/>
     </declare-styleable>
     <declare-styleable name="DrawerArrowToggle">
         <!-- The drawing color for the bars -->

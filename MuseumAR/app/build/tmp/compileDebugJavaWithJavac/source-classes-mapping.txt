@@ -1,0 +1,2 @@
+com/ec/MuseumAR/BuildConfig.java
+ com.ec.MuseumAR.BuildConfig

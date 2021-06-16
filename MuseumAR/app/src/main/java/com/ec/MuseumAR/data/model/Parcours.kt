@@ -1,5 +1,13 @@
 package com.ec.MuseumAR.data.model
 
-class Parcours(val id: Int, var theme: String, var duree: Int) {
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-}
+@Entity
+data class Parcours(
+    @PrimaryKey(autoGenerate = true)
+     val parcoursId: Long,
+     val theme: String,
+    // duree en minute
+     val duree: Int
+)
