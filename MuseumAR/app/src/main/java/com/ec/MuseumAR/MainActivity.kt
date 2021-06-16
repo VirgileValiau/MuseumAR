@@ -87,11 +87,16 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
         recyclerview.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
     }
 
-    private fun toScan(){
+    private fun toScan(id:Int){
+        // Fabrication d'un Bundle de données
+        val bdl = Bundle()
+        bdl.putInt("idParcours", id)
         // Changer d'activité
         val versScan: Intent
         // Intent explicite
         versScan = Intent(this@MainActivity, ScanActivity::class.java)
+        // Ajout d'un bundle à l'intent
+        versScan.putExtras(bdl)
         startActivity(versScan)
     }
 
@@ -249,11 +254,11 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
             alerter("choix du parcours 1")
             //ToDo( quand on choisis le parcours 1)
             dks.closeSpeechOperations()
-            toScan()
+            toScan(1)
         }
         else if(STATE == CHOIX_PARCOURS_2){
             alerter("choix du parcours 2")
-            //ToDo( quand on choisis le parcours 2)
+            toScan(2)
         }
         else if(STATE == GO_NEXT_OEUVRE){
             alerter("on passe à l'oeuvre suivante")
