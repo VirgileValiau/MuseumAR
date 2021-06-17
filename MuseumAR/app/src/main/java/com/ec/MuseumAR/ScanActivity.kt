@@ -2,6 +2,7 @@ package com.ec.MuseumAR
 
 
 import android.Manifest
+import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
@@ -44,13 +45,23 @@ class ScanActivity: AppCompatActivity(), ZXingScannerView.ResultHandler {
 
     override fun handleResult(result: Result) {
         Log.v("TAG RESULTAT", result.getText()) // affiche le resultat
-        Log.v("TAG", result.getBarcodeFormat().toString())
-        val builder: AlertDialog.Builder = AlertDialog.Builder(this)
-        builder.setTitle("Scan Result")
-        builder.setMessage(result.getText())
-        val alert1: AlertDialog = builder.create()
-        alert1.show()
+        val idOeuvre = result.getText()
+        toInfos(idOeuvre)
     }
+
+    private fun toInfos(idOeuvre:String){
+        // Fabrication d'un Bundle de données
+        val bdl = Bundle()
+        bdl.putString("idParcours", idOeuvre)
+        // Changer d'activité
+        val versInfos: Intent
+        // Intent explicite
+        versInfos = Intent(this@ScanActivity, InformationsActivity::class.java)
+        // Ajout d'un bundle à l'intent
+        versInfos.putExtras(bdl)
+        startActivity(versInfos)
+    }
+
 
     override fun onPause() {
         //Called when activity is paused
