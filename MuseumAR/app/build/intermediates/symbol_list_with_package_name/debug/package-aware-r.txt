@@ -1781,7 +1781,6 @@ id Auteur
 id BOTTOM_END
 id BOTTOM_START
 id CTRL
-id Date
 id Description
 id FUNCTION
 id META

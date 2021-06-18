@@ -89,6 +89,8 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
 
         recyclerview.adapter = adapter
         recyclerview.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+
+        //toScan(1)
     }
 
     private fun toScan(id:Int){
