@@ -3,12 +3,11 @@ package com.ec.MuseumAR
 
 import android.Manifest
 import android.content.Intent
+import android.graphics.Camera
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
 import android.widget.FrameLayout
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.google.zxing.Result
@@ -30,8 +29,9 @@ class ScanActivity: AppCompatActivity(), ZXingScannerView.ResultHandler {
 
         //  initialise le scanner view
         mScannerView = ZXingScannerView(this)
-
+        mScannerView.setAutoFocus(true)
         mCameraView.addView(mScannerView)
+
 
 
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), 1)
@@ -44,15 +44,15 @@ class ScanActivity: AppCompatActivity(), ZXingScannerView.ResultHandler {
     }
 
     override fun handleResult(result: Result) {
-        Log.v("TAG RESULTAT", result.getText()) // affiche le resultat
+        Log.i("scaned", result.getText()) // affiche le resultat
         val idOeuvre = result.getText()
         toInfos(idOeuvre)
     }
 
-    private fun toInfos(idOeuvre:String){
+    private fun toInfos(idOeuvre: String){
         // Fabrication d'un Bundle de données
         val bdl = Bundle()
-        bdl.putString("idParcours", idOeuvre)
+        bdl.putString("idOeuvre", idOeuvre)
         // Changer d'activité
         val versInfos: Intent
         // Intent explicite
