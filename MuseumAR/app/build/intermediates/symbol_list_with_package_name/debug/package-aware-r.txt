@@ -1732,6 +1732,10 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable fleche_bas
+drawable fleche_droite
+drawable fleche_gauche
+drawable fleche_haut
 drawable ic_bounce_ball
 drawable ic_clock_black_24dp
 drawable ic_keyboard_black_24dp

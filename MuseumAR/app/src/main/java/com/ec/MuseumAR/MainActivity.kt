@@ -20,6 +20,8 @@ import com.ec.MuseumAR.R
 import com.ec.MuseumAR.data.DataProvider
 import com.ec.MuseumAR.data.DbDataProvider
 import com.ec.MuseumAR.data.adapters.ParcoursAdapter
+import com.ec.MuseumAR.data.model.Oeuvre
+import com.ec.MuseumAR.data.model.ParcoursWithOeuvres
 import github.com.vikramezhil.dks.speech.Dks
 import github.com.vikramezhil.dks.speech.DksListener
 import kotlinx.coroutines.*
@@ -93,17 +95,30 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
         //toScan(1)
     }
 
-    private fun toScan(id:Int){
-        // Fabrication d'un Bundle de données
-        val bdl = Bundle()
-        bdl.putInt("idParcours", id)
-        // Changer d'activité
-        val versScan: Intent
-        // Intent explicite
-        versScan = Intent(this@MainActivity, ScanActivity::class.java)
-        // Ajout d'un bundle à l'intent
-        versScan.putExtras(bdl)
-        startActivity(versScan)
+    private fun toScan(idParcours:String){
+        job = activityScope.launch {
+            try {
+                //On récupère l'id de la première oeuvre du parcours choisi
+                val parcours : ParcoursWithOeuvres = db.getParcoursWithOeuvresById(idParcours.toLong())
+                val Oeuvres:List<Oeuvre> = parcours.oeuvres
+                val idFirstOeuvre:Long = Oeuvres[1].oeuvreId
+                val direction:String = Oeuvres[1].position
+                // Fabrication d'un Bundle de données
+                val bdl = Bundle()
+                bdl.putString("idParcours", idParcours)
+                bdl.putString("idNextOeuvre", idFirstOeuvre.toString())
+                bdl.putString("direction", direction)
+                // Changer d'activité
+                val versScan: Intent
+                // Intent explicite
+                versScan = Intent(this@MainActivity, ScanActivity::class.java)
+                // Ajout d'un bundle à l'intent
+                versScan.putExtras(bdl)
+                startActivity(versScan)
+            } catch (e: Exception) {
+                Log.e("database", e.message.toString())
+            }
+        }
     }
 
 
@@ -126,7 +141,6 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
         job = activityScope.launch {
             try {
                 val data = db.getAllParcours()
-
                 adapter.showData(data)
 
             } catch (e: Exception) {
@@ -258,13 +272,12 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
     fun onResult(STATE : Int?){
         if(STATE == CHOIX_PARCOURS_1){
             alerter("choix du parcours 1")
-            //ToDo( quand on choisis le parcours 1)
             dks.closeSpeechOperations()
-            toScan(1)
+            toScan("1")
         }
         else if(STATE == CHOIX_PARCOURS_2){
             alerter("choix du parcours 2")
-            toScan(2)
+            toScan("2")
         }
         else if(STATE == GO_NEXT_OEUVRE){
             alerter("on passe à l'oeuvre suivante")
