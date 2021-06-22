@@ -16,6 +16,10 @@ public final class MainActivity extends androidx.appcompat.app.AppCompatActivity
     private final int RecordAudioRequestCode = 1;
     private static final int CHOIX_PARCOURS_1 = 1;
     private static final int CHOIX_PARCOURS_2 = 2;
+    private static final int CHOIX_PARCOURS_3 = 3;
+    private static final int CHOIX_PARCOURS_4 = 4;
+    private static final int CHOIX_PARCOURS_5 = 5;
+    private static final int CHOIX_PARCOURS_6 = 6;
     private static final int GO_NEXT_OEUVRE = 100;
     private static final int PRECISION_OEUVRE = 101;
     private static final int NO_CORREESPONDANCE = 404;
@@ -97,7 +101,7 @@ public final class MainActivity extends androidx.appcompat.app.AppCompatActivity
         super();
     }
     
-    @kotlin.Metadata(mv = {1, 1, 16}, bv = {1, 0, 3}, k = 1, d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u000b\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002\u00a2\u0006\u0002\u0010\u0002R\u0014\u0010\u0003\u001a\u00020\u0004X\u0086D\u00a2\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006R\u0014\u0010\u0007\u001a\u00020\u0004X\u0086D\u00a2\u0006\b\n\u0000\u001a\u0004\b\b\u0010\u0006R\u0014\u0010\t\u001a\u00020\u0004X\u0086D\u00a2\u0006\b\n\u0000\u001a\u0004\b\n\u0010\u0006R\u0014\u0010\u000b\u001a\u00020\u0004X\u0086D\u00a2\u0006\b\n\u0000\u001a\u0004\b\f\u0010\u0006R\u0014\u0010\r\u001a\u00020\u0004X\u0086D\u00a2\u0006\b\n\u0000\u001a\u0004\b\u000e\u0010\u0006\u00a8\u0006\u000f"}, d2 = {"Lcom/ec/MuseumAR/MainActivity$Companion;", "", "()V", "CHOIX_PARCOURS_1", "", "getCHOIX_PARCOURS_1", "()I", "CHOIX_PARCOURS_2", "getCHOIX_PARCOURS_2", "GO_NEXT_OEUVRE", "getGO_NEXT_OEUVRE", "NO_CORREESPONDANCE", "getNO_CORREESPONDANCE", "PRECISION_OEUVRE", "getPRECISION_OEUVRE", "app_debug"})
+    @kotlin.Metadata(mv = {1, 1, 16}, bv = {1, 0, 3}, k = 1, d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0013\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002\u00a2\u0006\u0002\u0010\u0002R\u0014\u0010\u0003\u001a\u00020\u0004X\u0086D\u00a2\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006R\u0014\u0010\u0007\u001a\u00020\u0004X\u0086D\u00a2\u0006\b\n\u0000\u001a\u0004\b\b\u0010\u0006R\u0014\u0010\t\u001a\u00020\u0004X\u0086D\u00a2\u0006\b\n\u0000\u001a\u0004\b\n\u0010\u0006R\u0014\u0010\u000b\u001a\u00020\u0004X\u0086D\u00a2\u0006\b\n\u0000\u001a\u0004\b\f\u0010\u0006R\u0014\u0010\r\u001a\u00020\u0004X\u0086D\u00a2\u0006\b\n\u0000\u001a\u0004\b\u000e\u0010\u0006R\u0014\u0010\u000f\u001a\u00020\u0004X\u0086D\u00a2\u0006\b\n\u0000\u001a\u0004\b\u0010\u0010\u0006R\u0014\u0010\u0011\u001a\u00020\u0004X\u0086D\u00a2\u0006\b\n\u0000\u001a\u0004\b\u0012\u0010\u0006R\u0014\u0010\u0013\u001a\u00020\u0004X\u0086D\u00a2\u0006\b\n\u0000\u001a\u0004\b\u0014\u0010\u0006R\u0014\u0010\u0015\u001a\u00020\u0004X\u0086D\u00a2\u0006\b\n\u0000\u001a\u0004\b\u0016\u0010\u0006\u00a8\u0006\u0017"}, d2 = {"Lcom/ec/MuseumAR/MainActivity$Companion;", "", "()V", "CHOIX_PARCOURS_1", "", "getCHOIX_PARCOURS_1", "()I", "CHOIX_PARCOURS_2", "getCHOIX_PARCOURS_2", "CHOIX_PARCOURS_3", "getCHOIX_PARCOURS_3", "CHOIX_PARCOURS_4", "getCHOIX_PARCOURS_4", "CHOIX_PARCOURS_5", "getCHOIX_PARCOURS_5", "CHOIX_PARCOURS_6", "getCHOIX_PARCOURS_6", "GO_NEXT_OEUVRE", "getGO_NEXT_OEUVRE", "NO_CORREESPONDANCE", "getNO_CORREESPONDANCE", "PRECISION_OEUVRE", "getPRECISION_OEUVRE", "app_debug"})
     public static final class Companion {
         
         public final int getCHOIX_PARCOURS_1() {
@@ -105,6 +109,22 @@ public final class MainActivity extends androidx.appcompat.app.AppCompatActivity
         }
         
         public final int getCHOIX_PARCOURS_2() {
+            return 0;
+        }
+        
+        public final int getCHOIX_PARCOURS_3() {
+            return 0;
+        }
+        
+        public final int getCHOIX_PARCOURS_4() {
+            return 0;
+        }
+        
+        public final int getCHOIX_PARCOURS_5() {
+            return 0;
+        }
+        
+        public final int getCHOIX_PARCOURS_6() {
             return 0;
         }
         

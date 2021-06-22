@@ -93,6 +93,12 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
         recyclerview.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
 
         //toScan(1)
+        /*
+        val vers: Intent
+        vers = Intent(this@MainActivity, FinParcours::class.java)
+        startActivity(vers)
+        */
+         
     }
 
     private fun toScan(idParcours:String){
@@ -281,7 +287,7 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
     }
 
     fun onResult(STATE : Int?){
-      /*  if(STATE == CHOIX_PARCOURS_1){
+        if(STATE == CHOIX_PARCOURS_1){
             //alerter("choix du parcours 1")
             dks.closeSpeechOperations()
             toScan("1")
@@ -310,7 +316,7 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
             //alerter("choix du parcours 6")
             dks.closeSpeechOperations()
             toScan("6")
-        }*/
+        }
 
         if(STATE!! < 99){
             dks.closeSpeechOperations()

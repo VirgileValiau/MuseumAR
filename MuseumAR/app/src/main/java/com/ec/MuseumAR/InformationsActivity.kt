@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
@@ -17,6 +18,7 @@ import com.ec.MuseumAR.data.model.ParcoursWithOeuvres
 import github.com.vikramezhil.dks.speech.Dks
 import github.com.vikramezhil.dks.speech.DksListener
 import kotlinx.coroutines.*
+
 
 class InformationsActivity: AppCompatActivity() {
 
@@ -57,7 +59,7 @@ class InformationsActivity: AppCompatActivity() {
         ) {
             checkPermission()
         }
-        dks = Dks(application, supportFragmentManager, object: DksListener {
+        dks = Dks(application, supportFragmentManager, object : DksListener {
             override fun onDksLiveSpeechResult(liveSpeechResult: String) {
                 Log.d(application.packageName, "Speech result - $liveSpeechResult")
             }
@@ -69,7 +71,10 @@ class InformationsActivity: AppCompatActivity() {
 
             override fun onDksLiveSpeechFrequency(frequency: Float) {}
 
-            override fun onDksLanguagesAvailable(defaultLanguage: String?, supportedLanguages: ArrayList<String>?) {
+            override fun onDksLanguagesAvailable(
+                defaultLanguage: String?,
+                supportedLanguages: ArrayList<String>?
+            ) {
                 Log.i("test", "defaultLanguage - $defaultLanguage")
                 Log.i("test", "supportedLanguages - $supportedLanguages")
 
@@ -85,7 +90,7 @@ class InformationsActivity: AppCompatActivity() {
         })
     }
 
-    private fun AfficherContenuOeuvre(id:String){
+    private fun AfficherContenuOeuvre(id: String){
         job = activityScope.launch {
             try {
                 val oeuvre = db.getOeuvreById(id.toLong())
@@ -115,32 +120,43 @@ class InformationsActivity: AppCompatActivity() {
         t.show()
     }
 
-    private fun toScan(idParcours:String){
+    private fun toScan(idParcours: String){
         job = activityScope.launch {
             try {
                 //On récupère l'id de la première oeuvre du parcours choisi
                 val parcours : ParcoursWithOeuvres = db.getParcoursWithOeuvresById(idParcours.toLong())
                 val Oeuvres:List<Oeuvre> = parcours.oeuvres
                 var ordre:Int = 0
+                var fin:Boolean = false
                 for (i in Oeuvres.indices){
                     if (Oeuvres[i].oeuvreId == idOeuvre.toLong()){
-                        ordre = i+1
+                        if (i==Oeuvres.lastIndex){
+                            fin=true
+                        }else{
+                            ordre = i+1
+                        }
                     }
                 }
-                val idFirstOeuvre:Long = Oeuvres[ordre].oeuvreId
-                val direction:String = Oeuvres[ordre].position
-                // Fabrication d'un Bundle de données
-                val bdl = Bundle()
-                bdl.putString("idParcours", idParcours)
-                bdl.putString("idNextOeuvre", idFirstOeuvre.toString())
-                bdl.putString("direction", direction)
-                // Changer d'activité
-                val versScan: Intent
-                // Intent explicite
-                versScan = Intent(this@InformationsActivity, ScanActivity::class.java)
-                // Ajout d'un bundle à l'intent
-                versScan.putExtras(bdl)
-                startActivity(versScan)
+
+                if (fin){
+
+                }else{
+                    //récupération de l'id de l'oeuvre suivante et de sa direction
+                    val idNextOeuvre:Long = Oeuvres[ordre].oeuvreId
+                    val directionNextOeuvre:String = Oeuvres[ordre].position
+                    // Fabrication d'un Bundle de données
+                    val bdl = Bundle()
+                    bdl.putString("idParcours", idParcours)
+                    bdl.putString("idNextOeuvre", idNextOeuvre.toString())
+                    bdl.putString("direction", directionNextOeuvre)
+                    // Changer d'activité
+                    val versScan: Intent
+                    // Intent explicite
+                    versScan = Intent(this@InformationsActivity, ScanActivity::class.java)
+                    // Ajout d'un bundle à l'intent
+                    versScan.putExtras(bdl)
+                    startActivity(versScan)
+                }
             } catch (e: Exception) {
                 Log.e("database", e.message.toString())
             }
@@ -155,29 +171,7 @@ class InformationsActivity: AppCompatActivity() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    fun traitementResult(speechResult:String){
+    fun traitementResult(speechResult: String){
         var separateSpeechResult :ArrayList<String> = ArrayList()
         var currentword :String =""
         for(k in 0..(speechResult.length -1)){
@@ -244,7 +238,7 @@ class InformationsActivity: AppCompatActivity() {
             }
             if(k <= (separateSpeechResult.size -2)  ){
                 //Log.i("traitement","k<2 et on a : ${separateSpeechResult[k]} \${separateSpeechResult[k+1]")
-                if(separateSpeechResult[k] == "le" && separateSpeechResult[k+1] == "vent"){
+                if(separateSpeechResult[k] == "le" && separateSpeechResult[k + 1] == "vent"){
                     //Log.i("traitement", "lol le vent: ${separateSpeechResult[k]} ${separateSpeechResult[k+1]}")
                     oeuvre = true
                 }
@@ -297,7 +291,7 @@ class InformationsActivity: AppCompatActivity() {
         }
     }
 
-    fun onResult(STATE : Int?){
+    fun onResult(STATE: Int?){
         if(STATE == CHOIX_PARCOURS_1){
             alerter("choix du parcours 1")
             dks.closeSpeechOperations()
@@ -307,6 +301,7 @@ class InformationsActivity: AppCompatActivity() {
             dks.closeSpeechOperations()
         }
         else if(STATE == GO_NEXT_OEUVRE){
+            alerter("oeuvre suivante")
             toScan(idParcours)
         }
         else if(STATE == PRECISION_OEUVRE){
