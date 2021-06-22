@@ -66,7 +66,7 @@ class InformationsActivity: AppCompatActivity() {
 
             override fun onDksFinalSpeechResult(speechResult: String) {
                 Log.d(application.packageName, "Final speech result - $speechResult")
-                traitementResult(speechResult)
+                traitementResultInfo(speechResult)
             }
 
             override fun onDksLiveSpeechFrequency(frequency: Float) {}
@@ -88,6 +88,9 @@ class InformationsActivity: AppCompatActivity() {
                 Toast.makeText(application, errMsg, Toast.LENGTH_SHORT).show()
             }
         })
+
+        dks.continuousSpeechRecognition = true
+        dks.startSpeechRecognition()
     }
 
     private fun AfficherContenuOeuvre(id: String){
@@ -171,7 +174,7 @@ class InformationsActivity: AppCompatActivity() {
 
 
 
-    fun traitementResult(speechResult: String){
+    fun traitementResultInfo(speechResult:String){
         var separateSpeechResult :ArrayList<String> = ArrayList()
         var currentword :String =""
         for(k in 0..(speechResult.length -1)){
@@ -193,71 +196,48 @@ class InformationsActivity: AppCompatActivity() {
             }
         }
 
-        var choix :Boolean = false
-        var parcours: Boolean = false
-        var numero: Int? = null
         var passer : Boolean = false
         var oeuvre : Boolean = false
         var precision : Boolean = false
 
 
-        for(k in 0..(separateSpeechResult.size -1)){
+        for(k in 0..(separateSpeechResult.size -1)) {
 
-            var current: String = ""
-            for(j in separateSpeechResult[k]){
-                current += j
-                if(current == "choi"){
-                    //Log.i("Traitement","il y a un choi: \t ${separateSpeechResult[k]}")
-                    choix = true
+                var current: String = ""
+                for (j in separateSpeechResult[k]) {
+                    current += j
+                     if (current == "pass" || current == "suiva") {
+                        //Log.i("Traitement","il y a un passe: \t ${separateSpeechResult[k]}")
+                        passer = true
+                    } else if (current == "oeuvre" || current == "œuvre") {
+                        //Log.i("Traitement","il y a une œuvre: \t ${separateSpeechResult[k]}")
+                        oeuvre = true
+                    } else if (current == "precis" || current == "précis" || current == "descri") {
+                        //Log.i("Traitement","il y a une précision: \t ${separateSpeechResult[k]}")
+                        precision = true
+                    }
+
                 }
-                else if (current == "parcou"){
-                    // Log.i("Traitement","il y a un parcours: \t ${separateSpeechResult[k]}")
-                    parcours = true
-                }
-                else if(current =="un" || current == "hein" || current == "1"){
-                    //Log.i("Traitement","il y a un numero 1: \t ${separateSpeechResult[k]}")
-                    numero = 1
-                }
-                else if(current =="de" || current == "deux" || current == "2"){
-                    // Log.i("Traitement","il y a un numero 1: \t ${separateSpeechResult[k]}")
-                    numero = 2
-                }
-                else if(current == "pass" || current == "suiva"){
-                    //Log.i("Traitement","il y a un passe: \t ${separateSpeechResult[k]}")
-                    passer = true
-                }
-                else if(current == "oeuvre" || current == "œuvre" ){
-                    //Log.i("Traitement","il y a une œuvre: \t ${separateSpeechResult[k]}")
-                    oeuvre = true
-                }
-                else if(current=="precis" || current=="précis" || current == "descri"){
-                    //Log.i("Traitement","il y a une précision: \t ${separateSpeechResult[k]}")
-                    precision = true
+                if (k <= (separateSpeechResult.size - 2)) {
+                    //Log.i("traitement","k<2 et on a : ${separateSpeechResult[k]} \${separateSpeechResult[k+1]")
+                    if (separateSpeechResult[k] == "le" && separateSpeechResult[k + 1] == "vent") {
+                        //Log.i("traitement", "lol le vent: ${separateSpeechResult[k]} ${separateSpeechResult[k+1]}")
+                        oeuvre = true
+                    }
                 }
 
-            }
-            if(k <= (separateSpeechResult.size -2)  ){
-                //Log.i("traitement","k<2 et on a : ${separateSpeechResult[k]} \${separateSpeechResult[k+1]")
-                if(separateSpeechResult[k] == "le" && separateSpeechResult[k + 1] == "vent"){
-                    //Log.i("traitement", "lol le vent: ${separateSpeechResult[k]} ${separateSpeechResult[k+1]}")
-                    oeuvre = true
-                }
-            }
         }
-        if(choix && parcours && numero!=null){
-            return onResult(numero)
-            //alerter("choix du parcours $numero")
-        }
-        else if(passer && oeuvre){
+
+        if(passer && oeuvre){
             //alerter("on passe à l'oeuvre suivante")
-            return onResult(GO_NEXT_OEUVRE)
+            return onResult(MainActivity.GO_NEXT_OEUVRE)
         }
         else if(oeuvre && precision){
             //alerter("précisions sur l'oeuvre")
-            return onResult(PRECISION_OEUVRE)
+            return onResult(MainActivity.PRECISION_OEUVRE)
         }
         else{
-            return onResult(NO_CORREESPONDANCE)
+            return onResult(MainActivity.NO_CORREESPONDANCE)
         }
 
 
@@ -292,16 +272,11 @@ class InformationsActivity: AppCompatActivity() {
     }
 
     fun onResult(STATE: Int?){
-        if(STATE == CHOIX_PARCOURS_1){
-            alerter("choix du parcours 1")
-            dks.closeSpeechOperations()
-        }
-        else if(STATE == CHOIX_PARCOURS_2){
-            alerter("choix du parcours 2")
-            dks.closeSpeechOperations()
-        }
-        else if(STATE == GO_NEXT_OEUVRE){
+
+        if(STATE == GO_NEXT_OEUVRE){
             alerter("oeuvre suivante")
+            dks.closeSpeechOperations()
+            dks.continuousSpeechRecognition = false
             toScan(idParcours)
         }
         else if(STATE == PRECISION_OEUVRE){
