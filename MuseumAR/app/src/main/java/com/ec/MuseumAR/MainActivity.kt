@@ -57,6 +57,24 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
         ) {
             checkPermission()
         }
+        DKSCreation()
+
+
+        refresh()
+
+        recyclerview.adapter = adapter
+        recyclerview.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+
+        //toScan(1)
+        /*
+        val vers: Intent
+        vers = Intent(this@MainActivity, FinParcours::class.java)
+        startActivity(vers)
+        */
+         
+    }
+
+    private fun DKSCreation(){
         dks = Dks(application, supportFragmentManager, object: DksListener {
             override fun onDksLiveSpeechResult(liveSpeechResult: String) {
                 Log.d(application.packageName, "Speech result - $liveSpeechResult")
@@ -86,19 +104,6 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
 
         dks.continuousSpeechRecognition = true
         dks.startSpeechRecognition()
-
-        refresh()
-
-        recyclerview.adapter = adapter
-        recyclerview.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-
-        //toScan(1)
-        /*
-        val vers: Intent
-        vers = Intent(this@MainActivity, FinParcours::class.java)
-        startActivity(vers)
-        */
-         
     }
 
     private fun toScan(idParcours:String){
@@ -128,10 +133,11 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
         }
     }
 
-    override fun onPause() {
-        super.onPause()
+    override fun onStop() {
+        super.onStop()
         dks.continuousSpeechRecognition = false
         dks.closeSpeechOperations()
+
     }
 
     private fun alerter(s: String) {
@@ -143,8 +149,7 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
     override fun onResume() {
         super.onResume()
         refresh()
-        dks.continuousSpeechRecognition = true
-        dks.startSpeechRecognition()
+        DKSCreation()
     }
 
     private fun refresh() {

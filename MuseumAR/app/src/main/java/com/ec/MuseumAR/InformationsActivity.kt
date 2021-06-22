@@ -59,38 +59,9 @@ class InformationsActivity: AppCompatActivity() {
         ) {
             checkPermission()
         }
-        dks = Dks(application, supportFragmentManager, object : DksListener {
-            override fun onDksLiveSpeechResult(liveSpeechResult: String) {
-                Log.d(application.packageName, "Speech result - $liveSpeechResult")
-            }
+        DKSCreation()
 
-            override fun onDksFinalSpeechResult(speechResult: String) {
-                Log.d(application.packageName, "Final speech result - $speechResult")
-                traitementResultInfo(speechResult)
-            }
 
-            override fun onDksLiveSpeechFrequency(frequency: Float) {}
-
-            override fun onDksLanguagesAvailable(
-                defaultLanguage: String?,
-                supportedLanguages: ArrayList<String>?
-            ) {
-                Log.i("test", "defaultLanguage - $defaultLanguage")
-                Log.i("test", "supportedLanguages - $supportedLanguages")
-
-                if (supportedLanguages != null && supportedLanguages.contains("fr-FR")) {
-                    // Setting the speech recognition language to english india if found
-                    dks.currentSpeechLanguage = "fr-FR"
-                }
-            }
-
-            override fun onDksSpeechError(errMsg: String) {
-                Toast.makeText(application, errMsg, Toast.LENGTH_SHORT).show()
-            }
-        })
-
-        dks.continuousSpeechRecognition = true
-        dks.startSpeechRecognition()
     }
 
     private fun AfficherContenuOeuvre(id: String){
@@ -166,9 +137,54 @@ class InformationsActivity: AppCompatActivity() {
         }
     }
 
+    private fun DKSCreation(){
 
+        dks = Dks(application, supportFragmentManager, object : DksListener {
+            override fun onDksLiveSpeechResult(liveSpeechResult: String) {
+                Log.d(application.packageName, "Speech result - $liveSpeechResult")
+            }
 
+            override fun onDksFinalSpeechResult(speechResult: String) {
+                Log.d(application.packageName, "Final speech result - $speechResult")
+                traitementResultInfo(speechResult)
+            }
 
+            override fun onDksLiveSpeechFrequency(frequency: Float) {}
+
+            override fun onDksLanguagesAvailable(
+                defaultLanguage: String?,
+                supportedLanguages: ArrayList<String>?
+            ) {
+                Log.i("test", "defaultLanguage - $defaultLanguage")
+                Log.i("test", "supportedLanguages - $supportedLanguages")
+
+                if (supportedLanguages != null && supportedLanguages.contains("fr-FR")) {
+                    // Setting the speech recognition language to english india if found
+                    dks.currentSpeechLanguage = "fr-FR"
+                }
+            }
+
+            override fun onDksSpeechError(errMsg: String) {
+                Toast.makeText(application, errMsg, Toast.LENGTH_SHORT).show()
+            }
+        })
+        dks.continuousSpeechRecognition = true
+        dks.startSpeechRecognition()
+
+    }
+
+    override fun onResume(){
+        super.onResume()
+        DKSCreation()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i("onStop","STOP")
+        dks.closeSpeechOperations()
+        dks.continuousSpeechRecognition = false
+
+    }
 
 
 
