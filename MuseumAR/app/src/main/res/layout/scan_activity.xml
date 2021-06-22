@@ -14,20 +14,30 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
     </FrameLayout>
+
+    <ImageView
+        android:id="@+id/fleche"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/fleche_bas"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/mes"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
-        android:background="#83ffffff"
+        android:layout_marginBottom="8dp"
+        android:background="#002196F3"
         android:gravity="center_horizontal"
         android:text="Scanner le QR code de l'oeuvre !"
         android:textColor="@android:color/holo_green_dark"
-        android:textSize="40sp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -51,7 +51,7 @@ public final class ParcoursDao_Impl implements ParcoursDao {
   }
 
   @Override
-  public Object addNewParcours(final Parcours newParcours, final Continuation<? super Unit> arg1) {
+  public Object addNewParcours(final Parcours newParcours, final Continuation<? super Unit> p1) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       public Unit call() throws Exception {
@@ -64,11 +64,11 @@ public final class ParcoursDao_Impl implements ParcoursDao {
           __db.endTransaction();
         }
       }
-    }, arg1);
+    }, p1);
   }
 
   @Override
-  public Object getAllParcours(final Continuation<? super List<Parcours>> arg0) {
+  public Object getAllParcours(final Continuation<? super List<Parcours>> p0) {
     final String _sql = "SELECT * FROM parcours";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
     final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
@@ -102,11 +102,11 @@ public final class ParcoursDao_Impl implements ParcoursDao {
           _statement.release();
         }
       }
-    }, arg0);
+    }, p0);
   }
 
   @Override
-  public Object getParcoursById(final long parcoursId, final Continuation<? super Parcours> arg1) {
+  public Object getParcoursById(final long parcoursId, final Continuation<? super Parcours> p1) {
     final String _sql = "SELECT * FROM parcours WHERE parcoursId = ?";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
@@ -142,7 +142,7 @@ public final class ParcoursDao_Impl implements ParcoursDao {
           _statement.release();
         }
       }
-    }, arg1);
+    }, p1);
   }
 
   public static List<Class<?>> getRequiredConverters() {

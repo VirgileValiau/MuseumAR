@@ -35,7 +35,7 @@ public final class ParcoursWithOeuvresDao_Impl implements ParcoursWithOeuvresDao
 
   @Override
   public Object getAllParcoursWithOeuvres(
-      final Continuation<? super List<ParcoursWithOeuvres>> arg0) {
+      final Continuation<? super List<ParcoursWithOeuvres>> p0) {
     final String _sql = "SELECT * FROM parcours";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
     final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
@@ -98,12 +98,12 @@ public final class ParcoursWithOeuvresDao_Impl implements ParcoursWithOeuvresDao
           __db.endTransaction();
         }
       }
-    }, arg0);
+    }, p0);
   }
 
   @Override
   public Object getParcoursWithOeuvresById(final long parcoursId,
-      final Continuation<? super ParcoursWithOeuvres> arg1) {
+      final Continuation<? super ParcoursWithOeuvres> p1) {
     final String _sql = "SELECT * FROM parcours WHERE parcoursId = ?";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
@@ -168,7 +168,7 @@ public final class ParcoursWithOeuvresDao_Impl implements ParcoursWithOeuvresDao
           __db.endTransaction();
         }
       }
-    }, arg1);
+    }, p1);
   }
 
   public static List<Class<?>> getRequiredConverters() {

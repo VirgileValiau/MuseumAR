@@ -20,6 +20,8 @@ import com.ec.MuseumAR.R
 import com.ec.MuseumAR.data.DataProvider
 import com.ec.MuseumAR.data.DbDataProvider
 import com.ec.MuseumAR.data.adapters.ParcoursAdapter
+import com.ec.MuseumAR.data.model.Oeuvre
+import com.ec.MuseumAR.data.model.ParcoursWithOeuvres
 import github.com.vikramezhil.dks.speech.Dks
 import github.com.vikramezhil.dks.speech.DksListener
 import kotlinx.coroutines.*
@@ -89,19 +91,35 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
 
         recyclerview.adapter = adapter
         recyclerview.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+
+        //toScan(1)
     }
 
-    private fun toScan(id:Int){
-        // Fabrication d'un Bundle de données
-        val bdl = Bundle()
-        bdl.putInt("idParcours", id)
-        // Changer d'activité
-        val versScan: Intent
-        // Intent explicite
-        versScan = Intent(this@MainActivity, ScanActivity::class.java)
-        // Ajout d'un bundle à l'intent
-        versScan.putExtras(bdl)
-        startActivity(versScan)
+    private fun toScan(idParcours:String){
+        job = activityScope.launch {
+            try {
+                //On récupère l'id de la première oeuvre du parcours choisi
+                val parcours : ParcoursWithOeuvres = db.getParcoursWithOeuvresById(idParcours.toLong())
+                val Oeuvres:List<Oeuvre> = parcours.oeuvres
+                val idFirstOeuvre:Long = Oeuvres[1].oeuvreId
+                val direction:String = Oeuvres[1].position
+                // Fabrication d'un Bundle de données
+                val bdl = Bundle()
+                bdl.putString("idParcours", idParcours)
+                bdl.putString("idNextOeuvre", idFirstOeuvre.toString())
+                bdl.putString("direction", direction)
+                // Changer d'activité
+                val versScan: Intent
+                // Intent explicite
+                versScan = Intent(this@MainActivity, ScanActivity::class.java)
+                // Ajout d'un bundle à l'intent
+                versScan.putExtras(bdl)
+                startActivity(versScan)
+            } catch (e: Exception) {
+                Log.e("database", e.message.toString())
+                alerter("Il n'y a pas de parcours $idParcours")
+            }
+        }
     }
 
 
@@ -124,7 +142,6 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
         job = activityScope.launch {
             try {
                 val data = db.getAllParcours()
-
                 adapter.showData(data)
 
             } catch (e: Exception) {
@@ -163,46 +180,56 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
         var precision : Boolean = false
 
 
-        for(k in 0..(separateSpeechResult.size -1)){
+        for(k in 0..(separateSpeechResult.size -1)) {
+            if (separateSpeechResult[k].toIntOrNull() != null) {
+                numero = separateSpeechResult[k].toIntOrNull()
+                Log.i("Traitement", "il y a un numero $numero: \t ${separateSpeechResult[k]}")
+            } else {
+                var current: String = ""
+                for (j in separateSpeechResult[k]) {
+                    current += j
+                    if (current == "choi") {
+                        //Log.i("Traitement","il y a un choi: \t ${separateSpeechResult[k]}")
+                        choix = true
+                    } else if (current == "parcou") {
+                        // Log.i("Traitement","il y a un parcours: \t ${separateSpeechResult[k]}")
+                        parcours = true
+                    } else if (current == "un" || current == "hein" || current == "1") {
+                        //Log.i("Traitement","il y a un numero 1: \t ${separateSpeechResult[k]}")
+                        numero = 1
+                    } else if (current == "de" || current == "deu" || current == "2") {
+                        // Log.i("Traitement","il y a un numero 2: \t ${separateSpeechResult[k]}")
+                        numero = 2
+                    } else if (current == "troi" || current == "3") {
+                        numero = 3
+                        Log.i("Traitement", "il y a un numero 3: \t ${separateSpeechResult[k]}")
+                    } else if (current == "quatr" || current == "4") {
+                        numero = 4
+                        Log.i("Traitement", "il y a un numero 4: \t ${separateSpeechResult[k]}")
+                    } else if (current == "cinq" || current == "5") {
+                        numero = 5
+                        Log.i("Traitement", "il y a un numero 5: \t ${separateSpeechResult[k]}")
+                    } else if (current == "six" || current == "6") {
+                        numero = 6
+                        Log.i("Traitement", "il y a un numero 6: \t ${separateSpeechResult[k]}")
+                    } else if (current == "pass" || current == "suiva") {
+                        //Log.i("Traitement","il y a un passe: \t ${separateSpeechResult[k]}")
+                        passer = true
+                    } else if (current == "oeuvre" || current == "œuvre") {
+                        //Log.i("Traitement","il y a une œuvre: \t ${separateSpeechResult[k]}")
+                        oeuvre = true
+                    } else if (current == "precis" || current == "précis" || current == "descri") {
+                        //Log.i("Traitement","il y a une précision: \t ${separateSpeechResult[k]}")
+                        precision = true
+                    }
 
-            var current: String = ""
-            for(j in separateSpeechResult[k]){
-                current += j
-                if(current == "choi"){
-                    //Log.i("Traitement","il y a un choi: \t ${separateSpeechResult[k]}")
-                    choix = true
                 }
-                else if (current == "parcou"){
-                   // Log.i("Traitement","il y a un parcours: \t ${separateSpeechResult[k]}")
-                    parcours = true
-                }
-                else if(current =="un" || current == "hein" || current == "1"){
-                    //Log.i("Traitement","il y a un numero 1: \t ${separateSpeechResult[k]}")
-                    numero = 1
-                }
-                else if(current =="de" || current == "deux" || current == "2"){
-                   // Log.i("Traitement","il y a un numero 1: \t ${separateSpeechResult[k]}")
-                    numero = 2
-                }
-                else if(current == "pass" || current == "suiva"){
-                    //Log.i("Traitement","il y a un passe: \t ${separateSpeechResult[k]}")
-                    passer = true
-                }
-                else if(current == "oeuvre" || current == "œuvre" ){
-                    //Log.i("Traitement","il y a une œuvre: \t ${separateSpeechResult[k]}")
-                    oeuvre = true
-                }
-                else if(current=="precis" || current=="précis" || current == "descri"){
-                    //Log.i("Traitement","il y a une précision: \t ${separateSpeechResult[k]}")
-                    precision = true
-                }
-
-            }
-            if(k <= (separateSpeechResult.size -2)  ){
-                //Log.i("traitement","k<2 et on a : ${separateSpeechResult[k]} \${separateSpeechResult[k+1]")
-                if(separateSpeechResult[k] == "le" && separateSpeechResult[k+1] == "vent"){
-                    //Log.i("traitement", "lol le vent: ${separateSpeechResult[k]} ${separateSpeechResult[k+1]}")
-                    oeuvre = true
+                if (k <= (separateSpeechResult.size - 2)) {
+                    //Log.i("traitement","k<2 et on a : ${separateSpeechResult[k]} \${separateSpeechResult[k+1]")
+                    if (separateSpeechResult[k] == "le" && separateSpeechResult[k + 1] == "vent") {
+                        //Log.i("traitement", "lol le vent: ${separateSpeechResult[k]} ${separateSpeechResult[k+1]}")
+                        oeuvre = true
+                    }
                 }
             }
         }
@@ -254,16 +281,42 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
     }
 
     fun onResult(STATE : Int?){
-        if(STATE == CHOIX_PARCOURS_1){
-            alerter("choix du parcours 1")
-            //ToDo( quand on choisis le parcours 1)
+      /*  if(STATE == CHOIX_PARCOURS_1){
+            //alerter("choix du parcours 1")
             dks.closeSpeechOperations()
-            toScan(1)
+            toScan("1")
         }
         else if(STATE == CHOIX_PARCOURS_2){
-            alerter("choix du parcours 2")
-            toScan(2)
+            //alerter("choix du parcours 2")
+            dks.closeSpeechOperations()
+            toScan("2")
         }
+        else if(STATE == CHOIX_PARCOURS_3){
+            //alerter("choix du parcours 3")
+            dks.closeSpeechOperations()
+            toScan("3")
+        }
+        else if(STATE == CHOIX_PARCOURS_4){
+            //alerter("choix du parcours 4")
+            dks.closeSpeechOperations()
+            toScan("4")
+        }
+        else if(STATE == CHOIX_PARCOURS_5){
+            //alerter("choix du parcours 5")
+            dks.closeSpeechOperations()
+            toScan("5")
+        }
+        else if(STATE == CHOIX_PARCOURS_6){
+            //alerter("choix du parcours 6")
+            dks.closeSpeechOperations()
+            toScan("6")
+        }*/
+
+        if(STATE!! < 99){
+            dks.closeSpeechOperations()
+            toScan(STATE.toString())
+        }
+
         else if(STATE == GO_NEXT_OEUVRE){
             alerter("on passe à l'oeuvre suivante")
             //ToDo( quand on passe à l'oeuvre suivante)
@@ -281,6 +334,10 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
     companion object{
         val CHOIX_PARCOURS_1 = 1
         val CHOIX_PARCOURS_2 = 2
+        val CHOIX_PARCOURS_3 = 3
+        val CHOIX_PARCOURS_4 = 4
+        val CHOIX_PARCOURS_5 = 5
+        val CHOIX_PARCOURS_6 = 6
         val GO_NEXT_OEUVRE = 100
         val PRECISION_OEUVRE = 101
         val NO_CORREESPONDANCE = 404
