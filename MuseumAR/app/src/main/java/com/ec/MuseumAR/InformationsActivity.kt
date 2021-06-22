@@ -206,7 +206,7 @@ class InformationsActivity: AppCompatActivity() {
                 var current: String = ""
                 for (j in separateSpeechResult[k]) {
                     current += j
-                     if (current == "pass" || current == "suiva") {
+                     if (current == "pass" || current == "suiva" || current == "suiva") {
                         //Log.i("Traitement","il y a un passe: \t ${separateSpeechResult[k]}")
                         passer = true
                     } else if (current == "oeuvre" || current == "œuvre") {
@@ -284,6 +284,8 @@ class InformationsActivity: AppCompatActivity() {
             //ToDo( quand on veut des précisions sur l'oeuvre)
         }
         else if(STATE == NO_CORREESPONDANCE){
+            dks.startSpeechRecognition()
+            dks.continuousSpeechRecognition = true
             alerter("aucune correspondance, veuillez réessayer")
 
         }

@@ -128,7 +128,11 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
         }
     }
 
-
+    override fun onPause() {
+        super.onPause()
+        dks.continuousSpeechRecognition = false
+        dks.closeSpeechOperations()
+    }
 
     private fun alerter(s: String) {
 
@@ -139,6 +143,8 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
     override fun onResume() {
         super.onResume()
         refresh()
+        dks.continuousSpeechRecognition = true
+        dks.startSpeechRecognition()
     }
 
     private fun refresh() {
