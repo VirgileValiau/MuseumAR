@@ -6,16 +6,19 @@ com/ec/MuseumAR/data/database/OeuvreDao_Impl.java
  com.ec.MuseumAR.data.database.OeuvreDao_Impl$4
 com/ec/MuseumAR/BuildConfig.java
  com.ec.MuseumAR.BuildConfig
-com/ec/MuseumAR/data/database/MuseumRoomDatabase_Impl.java
- com.ec.MuseumAR.data.database.MuseumRoomDatabase_Impl
- com.ec.MuseumAR.data.database.MuseumRoomDatabase_Impl$1
+com/ec/MuseumAR/data/database/ParcoursWithOeuvresDao_Impl.java
+ com.ec.MuseumAR.data.database.ParcoursWithOeuvresDao_Impl
+ com.ec.MuseumAR.data.database.ParcoursWithOeuvresDao_Impl$1
+ com.ec.MuseumAR.data.database.ParcoursWithOeuvresDao_Impl$2
 com/ec/MuseumAR/data/database/ParcoursDao_Impl.java
  com.ec.MuseumAR.data.database.ParcoursDao_Impl
  com.ec.MuseumAR.data.database.ParcoursDao_Impl$1
  com.ec.MuseumAR.data.database.ParcoursDao_Impl$2
  com.ec.MuseumAR.data.database.ParcoursDao_Impl$3
  com.ec.MuseumAR.data.database.ParcoursDao_Impl$4
-com/ec/MuseumAR/data/database/ParcoursWithOeuvresDao_Impl.java
- com.ec.MuseumAR.data.database.ParcoursWithOeuvresDao_Impl
- com.ec.MuseumAR.data.database.ParcoursWithOeuvresDao_Impl$1
- com.ec.MuseumAR.data.database.ParcoursWithOeuvresDao_Impl$2
+com/ec/MuseumAR/data/database/PositionDao_Impl.java
+ com.ec.MuseumAR.data.database.PositionDao_Impl
+ com.ec.MuseumAR.data.database.PositionDao_Impl$1
+com/ec/MuseumAR/data/database/MuseumRoomDatabase_Impl.java
+ com.ec.MuseumAR.data.database.MuseumRoomDatabase_Impl
+ com.ec.MuseumAR.data.database.MuseumRoomDatabase_Impl$1
