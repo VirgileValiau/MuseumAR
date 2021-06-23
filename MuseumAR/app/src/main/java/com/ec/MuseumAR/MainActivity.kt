@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
         recyclerview.adapter = adapter
         recyclerview.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
 
-
+        /*
         val bdl = Bundle()
         bdl.putString("idParcours", "1")
         bdl.putString("idOeuvre", "7")
@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
         vers = Intent(this@MainActivity, InformationsActivity::class.java)
         vers.putExtras(bdl)
         startActivity(vers)
-
+        */
          
     }
 
