@@ -103,17 +103,22 @@ class InformationsActivity: AppCompatActivity() {
                 var ordre:Int = 0
                 var fin:Boolean = false
                 for (i in Oeuvres.indices){
+                    Log.i("PROJET",idOeuvre)
+                    Log.i("PROJET",Oeuvres[i].oeuvreId.toString())
                     if (Oeuvres[i].oeuvreId == idOeuvre.toLong()){
                         if (i==Oeuvres.lastIndex){
                             fin=true
+                            alerter("fin")
                         }else{
                             ordre = i+1
+                            alerter("pas fin")
                         }
                     }
                 }
-
                 if (fin){
-
+                    val versFin: Intent
+                    versFin = Intent(this@InformationsActivity, FinParcours::class.java)
+                    startActivity(versFin)
                 }else{
                     //récupération de l'id de l'oeuvre suivante et de sa direction
                     val idNextOeuvre:Long = Oeuvres[ordre].oeuvreId

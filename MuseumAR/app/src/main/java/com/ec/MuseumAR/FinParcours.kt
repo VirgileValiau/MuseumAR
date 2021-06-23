@@ -19,7 +19,7 @@ class FinParcours: AppCompatActivity() {
 
 
 
-    var countDownTimer: CountDownTimer = object : CountDownTimer(120 * 1000, 1000) {
+    var countDownTimer: CountDownTimer = object : CountDownTimer(300 * 1000, 1000) {
         override fun onTick(millisUntilFinished: Long) {
             var nbSec:Int = millisUntilFinished.toInt()/1000
             var nbMin:Int = (nbSec/60)
