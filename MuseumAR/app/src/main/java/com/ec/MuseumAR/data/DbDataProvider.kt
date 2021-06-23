@@ -40,4 +40,6 @@ class DbDataProvider (
     suspend fun getPosition(fromId: Long, toId: Long) = positionDao.getPosition(fromId, "to$toId")
 
     suspend fun addNewRelations(newRelations: List<ParcoursOeuvreCrossRef>) = parcoursOeuvreCrossRefDao.addNewRelations(newRelations)
+
+    suspend fun deleteRelation(parcoursId: Long, oeuvreId: Long) = parcoursOeuvreCrossRefDao.deleteRelation(parcoursId, oeuvreId)
 }
