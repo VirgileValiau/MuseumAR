@@ -65,16 +65,17 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
         recyclerview.adapter = adapter
         recyclerview.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
 
-        /*
+/*
         val bdl = Bundle()
         bdl.putString("idParcours", "1")
-        bdl.putString("idOeuvre", "7")
+        bdl.putString("idOeuvre", "3")
         bdl.putString("direction", "Droite")
         val vers: Intent
         vers = Intent(this@MainActivity, InformationsActivity::class.java)
         vers.putExtras(bdl)
         startActivity(vers)
         */
+
          
     }
 
@@ -116,8 +117,8 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
                 //On récupère l'id de la première oeuvre du parcours choisi
                 val parcours : ParcoursWithOeuvres = db.getParcoursWithOeuvresById(idParcours.toLong())
                 val Oeuvres:List<Oeuvre> = parcours.oeuvres
-                val idFirstOeuvre:Long = Oeuvres[1].oeuvreId
-                val direction:String = Oeuvres[1].position
+                val idFirstOeuvre:Long = Oeuvres[0].oeuvreId
+                val direction:String = Oeuvres[0].position
                 // Fabrication d'un Bundle de données
                 val bdl = Bundle()
                 bdl.putString("idParcours", idParcours)

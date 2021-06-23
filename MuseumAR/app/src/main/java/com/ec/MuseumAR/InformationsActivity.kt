@@ -7,6 +7,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -32,12 +33,15 @@ class InformationsActivity: AppCompatActivity() {
     var job : Job? = null
     private lateinit var idParcours:String
     private lateinit var idOeuvre:String
+    private lateinit var description:TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_informations)
         db = DbDataProvider(this.application)
+        description = findViewById(R.id.Description)
+        description.setVisibility(View.INVISIBLE)
 
         //Récupération de l'id de l'oeuvre et de l'id du parcours
         val bdl = this.intent.extras
@@ -177,7 +181,7 @@ class InformationsActivity: AppCompatActivity() {
         dks.startSpeechRecognition()
 
     }
-
+/*
     override fun onResume(){
         super.onResume()
         DKSCreation()
@@ -190,7 +194,7 @@ class InformationsActivity: AppCompatActivity() {
         dks.continuousSpeechRecognition = false
 
     }
-
+*/
 
 
     fun traitementResultInfo(speechResult:String){
@@ -235,7 +239,6 @@ class InformationsActivity: AppCompatActivity() {
                         //Log.i("Traitement","il y a une précision: \t ${separateSpeechResult[k]}")
                         precision = true
                     }
-
                 }
                 if (k <= (separateSpeechResult.size - 2)) {
                     //Log.i("traitement","k<2 et on a : ${separateSpeechResult[k]} \${separateSpeechResult[k+1]")
@@ -299,14 +302,15 @@ class InformationsActivity: AppCompatActivity() {
             toScan(idParcours)
         }
         else if(STATE == PRECISION_OEUVRE){
+            dks.startSpeechRecognition()
+            dks.continuousSpeechRecognition = true
             alerter("précisions sur l'oeuvre")
-            //ToDo( quand on veut des précisions sur l'oeuvre)
+            description.setVisibility(View.VISIBLE)
         }
         else if(STATE == NO_CORREESPONDANCE){
             dks.startSpeechRecognition()
             dks.continuousSpeechRecognition = true
             alerter("aucune correspondance, veuillez réessayer")
-
         }
     }
 
