@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
@@ -23,16 +28,24 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:jules-uiMainActivity" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="178ceef0-fe01-406b-896d-25187ac79c96" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/MuseumAR.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MuseumAR/app/src/main/java/com/ec/MuseumAR/ChoixOeuvres.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MuseumAR/app/src/main/java/com/ec/MuseumAR/CreationOeuvres.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MuseumAR/app/src/main/java/com/ec/MuseumAR/ModificationParcours.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MuseumAR/app/src/main/res/layout/activity_choix_oeuvres.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MuseumAR/app/src/main/res/layout/activity_creation_oeuvres.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MuseumAR/app/src/main/res/layout/activity_modification_parcours.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MuseumAR/app/src/main/res/layout/oeuvre_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MuseumAR/app/src/main/res/menu/menu_hamb.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/MuseumAR.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MuseumAR.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MuseumAR/app/src/main/java/com/ec/MuseumAR/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MuseumAR/app/src/main/java/com/ec/MuseumAR/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MuseumAR/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/MuseumAR/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +68,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/MuseumAR/app/src/main/res/menu" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Scolaire\Centrale\G2\PMR\MuseumAR2\MuseumAR\app\src\main\res\menu" />
+      <recent name="D:\Scolaire\Centrale\G2\PMR\MuseumAR2\MuseumAR\app\src\main\res\layout" />
+      <recent name="D:\Scolaire\Centrale\G2\PMR\MuseumAR2\MuseumAR\app\src\main\java\com\ec\MuseumAR" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -78,7 +99,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="jules-uiMainActivity" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -89,12 +110,26 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="740" y="246" key="FileChooserDialogImpl" timestamp="1624462350626">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="246" key="FileChooserDialogImpl/-1920.0.1536.824/0.0.1920.1040/0.1080.1280.680@0.0.1920.1040" timestamp="1624462350626" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1624462692250">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/-1920.0.1536.824/0.0.1920.1040/0.1080.1280.680@0.0.1920.1040" timestamp="1624462692250" />
     <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1623749028522">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1623749028522" />
+    <state x="-1298" y="344" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1624478297785">
+      <screen x="-1920" y="0" width="1536" height="824" />
+    </state>
+    <state x="-1298" y="344" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1920.0.1536.824/0.0.1920.1040/0.1080.1280.680@-1920.0.1536.824" timestamp="1624478297785" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1920.0.1536.824/0.0.1920.1040/0.1080.1280.680@0.0.1920.1040" timestamp="1624470367215" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1623748952824">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
