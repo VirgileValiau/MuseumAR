@@ -5,7 +5,7 @@
 5    android:versionName="1.0" >
 6
 7    <uses-sdk
-8        android:minSdkVersion="23"
+8        android:minSdkVersion="14"
 8-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="30" />
 9-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml
@@ -52,52 +52,51 @@
 27        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 27-->[androidx.core:core:1.5.0] C:\Users\vvali\.gradle\caches\transforms-2\files-2.1\8ad9781498a53f7bdb0aff7d26128e97\core-1.5.0\AndroidManifest.xml:24:18-86
 28        android:debuggable="true"
-29        android:extractNativeLibs="false"
-30        android:icon="@mipmap/ic_launcher"
-30-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:23:9-43
-31        android:label="@string/app_name"
-31-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:24:9-41
-32        android:roundIcon="@mipmap/ic_launcher_round"
-32-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:25:9-54
-33        android:supportsRtl="true"
-33-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:26:9-35
-34        android:testOnly="true"
-35        android:theme="@style/Theme.MuseumAR"
-35-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:27:9-46
-36        android:usesCleartextTraffic="true" >
-36-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:21:9-44
-37        <activity android:name="com.ec.MuseumAR.MainActivity" >
-37-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:28:9-33:20
-37-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:28:19-47
-38            <intent-filter>
-38-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:29:9-32:29
-39                <action android:name="android.intent.action.MAIN" />
-39-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:30:17-69
-39-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:30:25-66
-40
-41                <category android:name="android.intent.category.LAUNCHER" />
-41-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:31:17-77
-41-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:31:27-74
-42            </intent-filter>
-43        </activity>
-44        <activity android:name="com.ec.MuseumAR.ScanActivity" />
-44-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:34:9-49
-44-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:34:19-47
-45        <activity android:name="com.ec.MuseumAR.InformationsActivity" />
-45-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:35:9-57
-45-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:35:19-55
-46        <activity android:name="com.ec.MuseumAR.FinParcours" />
-46-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:36:9-48
-46-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:36:19-46
-47
-48        <service
-48-->[androidx.room:room-runtime:2.3.0] C:\Users\vvali\.gradle\caches\transforms-2\files-2.1\d6e8b8736c8c3856b06ebc128c4d420c\room-runtime-2.3.0\AndroidManifest.xml:25:9-28:40
-49            android:name="androidx.room.MultiInstanceInvalidationService"
-49-->[androidx.room:room-runtime:2.3.0] C:\Users\vvali\.gradle\caches\transforms-2\files-2.1\d6e8b8736c8c3856b06ebc128c4d420c\room-runtime-2.3.0\AndroidManifest.xml:26:13-74
-50            android:directBootAware="true"
-50-->[androidx.room:room-runtime:2.3.0] C:\Users\vvali\.gradle\caches\transforms-2\files-2.1\d6e8b8736c8c3856b06ebc128c4d420c\room-runtime-2.3.0\AndroidManifest.xml:27:13-43
-51            android:exported="false" />
-51-->[androidx.room:room-runtime:2.3.0] C:\Users\vvali\.gradle\caches\transforms-2\files-2.1\d6e8b8736c8c3856b06ebc128c4d420c\room-runtime-2.3.0\AndroidManifest.xml:28:13-37
-52    </application>
-53
-54</manifest>
+29        android:icon="@mipmap/ic_launcher"
+29-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:23:9-43
+30        android:label="@string/app_name"
+30-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:24:9-41
+31        android:roundIcon="@mipmap/ic_launcher_round"
+31-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:25:9-54
+32        android:supportsRtl="true"
+32-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:26:9-35
+33        android:testOnly="true"
+34        android:theme="@style/Theme.MuseumAR"
+34-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:27:9-46
+35        android:usesCleartextTraffic="true" >
+35-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:21:9-44
+36        <activity android:name="com.ec.MuseumAR.MainActivity" >
+36-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:28:9-33:20
+36-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:28:19-47
+37            <intent-filter>
+37-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:29:9-32:29
+38                <action android:name="android.intent.action.MAIN" />
+38-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:30:17-69
+38-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:30:25-66
+39
+40                <category android:name="android.intent.category.LAUNCHER" />
+40-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:31:17-77
+40-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:31:27-74
+41            </intent-filter>
+42        </activity>
+43        <activity android:name="com.ec.MuseumAR.ScanActivity" />
+43-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:34:9-49
+43-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:34:19-47
+44        <activity android:name="com.ec.MuseumAR.InformationsActivity" />
+44-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:35:9-57
+44-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:35:19-55
+45        <activity android:name="com.ec.MuseumAR.FinParcours" />
+45-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:36:9-48
+45-->C:\Users\vvali\Desktop\cours\PMR\Projet\MuseumAR\app\src\main\AndroidManifest.xml:36:19-46
+46
+47        <service
+47-->[androidx.room:room-runtime:2.3.0] C:\Users\vvali\.gradle\caches\transforms-2\files-2.1\d6e8b8736c8c3856b06ebc128c4d420c\room-runtime-2.3.0\AndroidManifest.xml:25:9-28:40
+48            android:name="androidx.room.MultiInstanceInvalidationService"
+48-->[androidx.room:room-runtime:2.3.0] C:\Users\vvali\.gradle\caches\transforms-2\files-2.1\d6e8b8736c8c3856b06ebc128c4d420c\room-runtime-2.3.0\AndroidManifest.xml:26:13-74
+49            android:directBootAware="true"
+49-->[androidx.room:room-runtime:2.3.0] C:\Users\vvali\.gradle\caches\transforms-2\files-2.1\d6e8b8736c8c3856b06ebc128c4d420c\room-runtime-2.3.0\AndroidManifest.xml:27:13-43
+50            android:exported="false" />
+50-->[androidx.room:room-runtime:2.3.0] C:\Users\vvali\.gradle\caches\transforms-2\files-2.1\d6e8b8736c8c3856b06ebc128c4d420c\room-runtime-2.3.0\AndroidManifest.xml:28:13-37
+51    </application>
+52
+53</manifest>

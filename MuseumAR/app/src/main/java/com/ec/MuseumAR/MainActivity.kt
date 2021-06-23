@@ -118,12 +118,12 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
                 val parcours : ParcoursWithOeuvres = db.getParcoursWithOeuvresById(idParcours.toLong())
                 val Oeuvres:List<Oeuvre> = parcours.oeuvres
                 val idFirstOeuvre:Long = Oeuvres[0].oeuvreId
-                val direction:String = Oeuvres[0].position
+                val direction:String
                 // Fabrication d'un Bundle de données
                 val bdl = Bundle()
                 bdl.putString("idParcours", idParcours)
                 bdl.putString("idNextOeuvre", idFirstOeuvre.toString())
-                bdl.putString("direction", direction)
+                bdl.putString("direction", "autre")
                 // Changer d'activité
                 val versScan: Intent
                 // Intent explicite
