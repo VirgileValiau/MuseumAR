@@ -9,6 +9,6 @@ data class Oeuvre(
     val oeuvreId: Long,
     val oeuvreTitre: String,
     val description: String,
-    val auteur: String,
-    val position: String
+    val auteur: String
+//    val position: String
 )
