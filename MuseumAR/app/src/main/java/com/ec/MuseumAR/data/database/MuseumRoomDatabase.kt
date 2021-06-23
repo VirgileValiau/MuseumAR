@@ -21,4 +21,5 @@ abstract class MuseumRoomDatabase : RoomDatabase() {
     abstract fun parcoursDao(): ParcoursDao
     abstract fun parcoursWithOeuvresDao(): ParcoursWithOeuvresDao
     abstract fun positionDao(): PositionDao
+    abstract fun parcoursOeuvreCrossRefDao(): ParcoursOeuvreCrossRefDao
 }
