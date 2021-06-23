@@ -65,7 +65,6 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
         recyclerview.adapter = adapter
         recyclerview.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
 
-        //toScan(1)
         /*
         val vers: Intent
         vers = Intent(this@MainActivity, FinParcours::class.java)

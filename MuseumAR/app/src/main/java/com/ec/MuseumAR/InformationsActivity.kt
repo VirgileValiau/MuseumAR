@@ -188,8 +188,6 @@ class InformationsActivity: AppCompatActivity() {
 
 
 
-
-
     fun traitementResultInfo(speechResult:String){
         var separateSpeechResult :ArrayList<String> = ArrayList()
         var currentword :String =""
