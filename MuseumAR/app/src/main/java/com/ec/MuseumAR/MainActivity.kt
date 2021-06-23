@@ -57,6 +57,28 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
         ) {
             checkPermission()
         }
+        DKSCreation()
+
+
+        refresh()
+
+        recyclerview.adapter = adapter
+        recyclerview.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+
+        /*
+        val bdl = Bundle()
+        bdl.putString("idParcours", "1")
+        bdl.putString("idOeuvre", "7")
+        bdl.putString("direction", "Droite")
+        val vers: Intent
+        vers = Intent(this@MainActivity, InformationsActivity::class.java)
+        vers.putExtras(bdl)
+        startActivity(vers)
+        */
+         
+    }
+
+    private fun DKSCreation(){
         dks = Dks(application, supportFragmentManager, object: DksListener {
             override fun onDksLiveSpeechResult(liveSpeechResult: String) {
                 Log.d(application.packageName, "Speech result - $liveSpeechResult")
@@ -86,13 +108,6 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
 
         dks.continuousSpeechRecognition = true
         dks.startSpeechRecognition()
-
-        refresh()
-
-        recyclerview.adapter = adapter
-        recyclerview.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-
-        //toScan(1)
     }
 
     private fun toScan(idParcours:String){
@@ -122,7 +137,12 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+        dks.continuousSpeechRecognition = false
+        dks.closeSpeechOperations()
 
+    }
 
     private fun alerter(s: String) {
 
@@ -133,6 +153,7 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
     override fun onResume() {
         super.onResume()
         refresh()
+        DKSCreation()
     }
 
     private fun refresh() {
@@ -175,9 +196,7 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
         var choix :Boolean = false
         var parcours: Boolean = false
         var numero: Int? = null
-        var passer : Boolean = false
-        var oeuvre : Boolean = false
-        var precision : Boolean = false
+
 
 
         for(k in 0..(separateSpeechResult.size -1)) {
@@ -212,24 +231,8 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
                     } else if (current == "six" || current == "6") {
                         numero = 6
                         Log.i("Traitement", "il y a un numero 6: \t ${separateSpeechResult[k]}")
-                    } else if (current == "pass" || current == "suiva") {
-                        //Log.i("Traitement","il y a un passe: \t ${separateSpeechResult[k]}")
-                        passer = true
-                    } else if (current == "oeuvre" || current == "œuvre") {
-                        //Log.i("Traitement","il y a une œuvre: \t ${separateSpeechResult[k]}")
-                        oeuvre = true
-                    } else if (current == "precis" || current == "précis" || current == "descri") {
-                        //Log.i("Traitement","il y a une précision: \t ${separateSpeechResult[k]}")
-                        precision = true
                     }
 
-                }
-                if (k <= (separateSpeechResult.size - 2)) {
-                    //Log.i("traitement","k<2 et on a : ${separateSpeechResult[k]} \${separateSpeechResult[k+1]")
-                    if (separateSpeechResult[k] == "le" && separateSpeechResult[k + 1] == "vent") {
-                        //Log.i("traitement", "lol le vent: ${separateSpeechResult[k]} ${separateSpeechResult[k+1]}")
-                        oeuvre = true
-                    }
                 }
             }
         }
@@ -237,14 +240,7 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
             return onResult(numero)
             //alerter("choix du parcours $numero")
         }
-        else if(passer && oeuvre){
-            //alerter("on passe à l'oeuvre suivante")
-            return onResult(GO_NEXT_OEUVRE)
-        }
-        else if(oeuvre && precision){
-            //alerter("précisions sur l'oeuvre")
-            return onResult(PRECISION_OEUVRE)
-        }
+
         else{
             return onResult(NO_CORREESPONDANCE)
         }
@@ -281,50 +277,14 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
     }
 
     fun onResult(STATE : Int?){
-      /*  if(STATE == CHOIX_PARCOURS_1){
-            //alerter("choix du parcours 1")
-            dks.closeSpeechOperations()
-            toScan("1")
-        }
-        else if(STATE == CHOIX_PARCOURS_2){
-            //alerter("choix du parcours 2")
-            dks.closeSpeechOperations()
-            toScan("2")
-        }
-        else if(STATE == CHOIX_PARCOURS_3){
-            //alerter("choix du parcours 3")
-            dks.closeSpeechOperations()
-            toScan("3")
-        }
-        else if(STATE == CHOIX_PARCOURS_4){
-            //alerter("choix du parcours 4")
-            dks.closeSpeechOperations()
-            toScan("4")
-        }
-        else if(STATE == CHOIX_PARCOURS_5){
-            //alerter("choix du parcours 5")
-            dks.closeSpeechOperations()
-            toScan("5")
-        }
-        else if(STATE == CHOIX_PARCOURS_6){
-            //alerter("choix du parcours 6")
-            dks.closeSpeechOperations()
-            toScan("6")
-        }*/
 
         if(STATE!! < 99){
             dks.closeSpeechOperations()
+            dks.continuousSpeechRecognition = false
             toScan(STATE.toString())
         }
 
-        else if(STATE == GO_NEXT_OEUVRE){
-            alerter("on passe à l'oeuvre suivante")
-            //ToDo( quand on passe à l'oeuvre suivante)
-        }
-        else if(STATE == PRECISION_OEUVRE){
-            alerter("précisions sur l'oeuvre")
-            //ToDo( quand on veut des précisions sur l'oeuvre)
-        }
+
         else if(STATE == NO_CORREESPONDANCE){
             alerter("aucune correspondance, veuillez réessayer")
 

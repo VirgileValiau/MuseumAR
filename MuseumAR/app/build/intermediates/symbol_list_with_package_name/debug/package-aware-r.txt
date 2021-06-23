@@ -1788,6 +1788,7 @@ id CTRL
 id Description
 id FUNCTION
 id META
+id MessageFin1
 id NO_DEBUG
 id SHIFT
 id SHOW_ALL
@@ -1913,6 +1914,7 @@ id cut
 id date_picker_actions
 id decelerate
 id decelerateAndComplete
+id decompte
 id decor_content_parent
 id default_activity_button
 id deltaRelative
@@ -1957,6 +1959,7 @@ id fill_vertical
 id filled
 id fitToContents
 id fixed
+id fleche
 id flip
 id floating
 id forever
@@ -2030,6 +2033,7 @@ id material_value_index
 id media_actions
 id mes
 id message
+id messageFin
 id middle
 id mini
 id month_grid
@@ -2295,6 +2299,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_fin
 layout activity_informations
 layout activity_main
 layout custom_dialog
