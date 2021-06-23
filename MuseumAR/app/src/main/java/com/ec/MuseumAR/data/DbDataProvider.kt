@@ -17,6 +17,7 @@ class DbDataProvider (
     private val oeuvresDao = roomDatabase.oeuvreDao()
     private val parcoursDao = roomDatabase.parcoursDao()
     private val parcoursWithOeuvresDao = roomDatabase.parcoursWithOeuvresDao()
+    private val positionDao = roomDatabase.positionDao()
 
     suspend fun getAllOeuvres() = oeuvresDao.getAllOeuvres()
 
@@ -33,4 +34,6 @@ class DbDataProvider (
     suspend fun getAllParcoursWithOeuvres() = parcoursWithOeuvresDao.getAllParcoursWithOeuvres()
 
     suspend fun getParcoursWithOeuvresById(parcoursId: Long) = parcoursWithOeuvresDao.getParcoursWithOeuvresById(parcoursId)
+
+    suspend fun getPosition(fromId: Long, toId: Long) = positionDao.getPosition(fromId, "to$toId")
 }
