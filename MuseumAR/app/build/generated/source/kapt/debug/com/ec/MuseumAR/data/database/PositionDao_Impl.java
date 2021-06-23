@@ -27,7 +27,7 @@ public final class PositionDao_Impl implements PositionDao {
 
   @Override
   public Object getPosition(final long fromId, final String toId,
-      final Continuation<? super String> p2) {
+      final Continuation<? super String> arg2) {
     final String _sql = "SELECT ? FROM Position WHERE id = ?";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 2);
     int _argIndex = 1;
@@ -62,7 +62,7 @@ public final class PositionDao_Impl implements PositionDao {
           _statement.release();
         }
       }
-    }, p2);
+    }, arg2);
   }
 
   public static List<Class<?>> getRequiredConverters() {
