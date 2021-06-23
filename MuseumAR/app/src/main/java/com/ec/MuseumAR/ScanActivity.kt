@@ -52,8 +52,10 @@ class ScanActivity: AppCompatActivity(), ZXingScannerView.ResultHandler {
             direction = bdl.getString("direction").toString()
             if ((direction == "Droite") || (direction == "droite")){
                 fleche.setImageResource(R.drawable.fleche_droite)
-            }else{
+            }else if ((direction == "Gauche") || (direction == "gauche")){
                 fleche.setImageResource(R.drawable.fleche_gauche)
+            }else{
+                fleche.setImageResource(R.drawable.fleche_haut)
             }
         }
 
