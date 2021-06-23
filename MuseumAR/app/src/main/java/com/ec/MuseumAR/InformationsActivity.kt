@@ -124,9 +124,10 @@ class InformationsActivity: AppCompatActivity() {
                     versFin = Intent(this@InformationsActivity, FinParcours::class.java)
                     startActivity(versFin)
                 }else{
+
                     //récupération de l'id de l'oeuvre suivante et de sa direction
                     val idNextOeuvre:Long = Oeuvres[ordre].oeuvreId
-                    val directionNextOeuvre:String = Oeuvres[ordre].position
+                    val directionNextOeuvre:String = db.getPosition(idOeuvre.toLong(),idNextOeuvre).toString()
                     // Fabrication d'un Bundle de données
                     val bdl = Bundle()
                     bdl.putString("idParcours", idParcours)

@@ -1,10 +1,4 @@
-#Wed Jun 23 17:44:49 CEST 2021
-path.2=classes_0.dex
-path.1=classes.dex
+#Wed Jun 23 18:17:49 CEST 2021
+base.0=C\:\\Users\\vvali\\Desktop\\cours\\PMR\\Projet\\MuseumAR\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
-renamed.2=classes3.dex
-renamed.1=classes2.dex
 renamed.0=classes.dex
-base.2=C\:\\Users\\vvali\\Desktop\\cours\\PMR\\Projet\\MuseumAR\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_0.dex
-base.1=C\:\\Users\\vvali\\Desktop\\cours\\PMR\\Projet\\MuseumAR\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex
-base.0=C\:\\Users\\vvali\\Desktop\\cours\\PMR\\Projet\\MuseumAR\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
