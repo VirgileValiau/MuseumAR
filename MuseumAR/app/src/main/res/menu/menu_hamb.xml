@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/parcours"
+        android:title="modification parcours" />
+    <item
+        android:id="@+id/oeuvres"
+        android:title="Ajout oeuvres" />
+</menu>

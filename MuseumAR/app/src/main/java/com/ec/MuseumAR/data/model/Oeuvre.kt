@@ -5,10 +5,10 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Oeuvre(
-    @PrimaryKey(autoGenerate = true)
-    val oeuvreId: Long,
     val oeuvreTitre: String,
     val description: String,
-    val auteur: String
+    val auteur: String,
 //    val position: String
+    @PrimaryKey(autoGenerate = true)
+    val oeuvreId: Long = 0
 )

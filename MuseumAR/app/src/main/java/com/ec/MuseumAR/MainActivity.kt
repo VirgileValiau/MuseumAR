@@ -79,6 +79,21 @@ class MainActivity : AppCompatActivity(), ParcoursAdapter.ActionListener {
          
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_hamb, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val i : Intent
+        when(item.itemId){
+            R.id.parcours -> i = Intent(this,ModificationParcours::class.java)
+            else -> i = Intent(this,CreationOeuvres::class.java)
+        }
+        startActivity(i)
+        return super.onOptionsItemSelected(item)
+    }
+
     private fun DKSCreation(){
         dks = Dks(application, supportFragmentManager, object: DksListener {
             override fun onDksLiveSpeechResult(liveSpeechResult: String) {
