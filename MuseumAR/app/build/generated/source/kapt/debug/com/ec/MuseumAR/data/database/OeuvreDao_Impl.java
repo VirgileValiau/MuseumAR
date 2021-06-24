@@ -65,7 +65,7 @@ public final class OeuvreDao_Impl implements OeuvreDao {
   }
 
   @Override
-  public Object addNewOeuvre(final Oeuvre newOeuvre, final Continuation<? super Unit> p1) {
+  public Object addNewOeuvre(final Oeuvre newOeuvre, final Continuation<? super Unit> arg1) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       public Unit call() throws Exception {
@@ -78,11 +78,11 @@ public final class OeuvreDao_Impl implements OeuvreDao {
           __db.endTransaction();
         }
       }
-    }, p1);
+    }, arg1);
   }
 
   @Override
-  public Object getAllOeuvres(final Continuation<? super List<Oeuvre>> p0) {
+  public Object getAllOeuvres(final Continuation<? super List<Oeuvre>> arg0) {
     final String _sql = "SELECT * FROM oeuvre";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
     final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
@@ -134,11 +134,11 @@ public final class OeuvreDao_Impl implements OeuvreDao {
           _statement.release();
         }
       }
-    }, p0);
+    }, arg0);
   }
 
   @Override
-  public Object getOeuvreById(final long oeuvreId, final Continuation<? super Oeuvre> p1) {
+  public Object getOeuvreById(final long oeuvreId, final Continuation<? super Oeuvre> arg1) {
     final String _sql = "SELECT * FROM oeuvre WHERE oeuvreId = ?";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
@@ -192,7 +192,7 @@ public final class OeuvreDao_Impl implements OeuvreDao {
           _statement.release();
         }
       }
-    }, p1);
+    }, arg1);
   }
 
   public static List<Class<?>> getRequiredConverters() {

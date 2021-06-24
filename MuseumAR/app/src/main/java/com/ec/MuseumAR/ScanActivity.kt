@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.ec.MuseumAR.data.DbDataProvider
@@ -51,8 +52,10 @@ class ScanActivity: AppCompatActivity(), ZXingScannerView.ResultHandler {
             direction = bdl.getString("direction").toString()
             if ((direction == "Droite") || (direction == "droite")){
                 fleche.setImageResource(R.drawable.fleche_droite)
-            }else{
+            }else if ((direction == "Gauche") || (direction == "gauche")){
                 fleche.setImageResource(R.drawable.fleche_gauche)
+            }else{
+                fleche.setImageResource(R.drawable.fleche_haut)
             }
         }
 
@@ -69,7 +72,30 @@ class ScanActivity: AppCompatActivity(), ZXingScannerView.ResultHandler {
     override fun handleResult(result: Result) {
         Log.i("scaned", result.getText()) // affiche le resultat
         val idOeuvre = result.getText()
-        toInfos(idOeuvre)
+        if (result.getText() == idNextOeuvre){
+            toInfos(idOeuvre)
+        }else{
+            alerter("Ce n'est pas l'oeuvre attendu, rééssayez")
+            mScannerView.startCamera()
+            // Fabrication d'un Bundle de données
+            val bdl = Bundle()
+            bdl.putString("idParcours", idParcours)
+            bdl.putString("idNextOeuvre", idNextOeuvre)
+            bdl.putString("direction", direction)
+            // Changer d'activité
+            val versScan: Intent
+            // Intent explicite
+            versScan = Intent(this@ScanActivity, ScanActivity::class.java)
+            // Ajout d'un bundle à l'intent
+            versScan.putExtras(bdl)
+            startActivity(versScan)
+        }
+    }
+
+    private fun alerter(s: String) {
+        Log.i("PROJET", s)
+        val t = Toast.makeText(this, s, Toast.LENGTH_SHORT)
+        t.show()
     }
 
     private fun toInfos(idOeuvre: String){
@@ -86,11 +112,13 @@ class ScanActivity: AppCompatActivity(), ZXingScannerView.ResultHandler {
         startActivity(versInfos)
     }
 
-
+/*
     override fun onPause() {
         //Called when activity is paused
         super.onPause()
         mScannerView.stopCamera() // Stop camera on pause
     }
+
+ */
 }
 

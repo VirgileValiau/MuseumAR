@@ -33,6 +33,10 @@
         </activity>
         <activity android:name=".ScanActivity"/>
         <activity android:name=".InformationsActivity"/>
+        <activity android:name=".FinParcours"/>
+        <activity android:name=".ChoixOeuvres"/>
+        <activity android:name=".ModificationParcours"/>
+        <activity android:name=".CreationOeuvres"/>
     </application>
 
 </manifest>

@@ -5,9 +5,9 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Parcours(
-    @PrimaryKey(autoGenerate = true)
-     val parcoursId: Long,
      val theme: String,
     // duree en minute
-     val duree: Int
+     val duree: Int,
+     @PrimaryKey(autoGenerate = true)
+     val parcoursId: Long = 0
 )

@@ -5,7 +5,9 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.util.Log
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +19,7 @@ import com.ec.MuseumAR.data.model.ParcoursWithOeuvres
 import github.com.vikramezhil.dks.speech.Dks
 import github.com.vikramezhil.dks.speech.DksListener
 import kotlinx.coroutines.*
+
 
 class InformationsActivity: AppCompatActivity() {
 
@@ -30,12 +33,15 @@ class InformationsActivity: AppCompatActivity() {
     var job : Job? = null
     private lateinit var idParcours:String
     private lateinit var idOeuvre:String
+    private lateinit var description:TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_informations)
         db = DbDataProvider(this.application)
+        description = findViewById(R.id.Description)
+        description.setVisibility(View.INVISIBLE)
 
         //Récupération de l'id de l'oeuvre et de l'id du parcours
         val bdl = this.intent.extras
@@ -57,35 +63,12 @@ class InformationsActivity: AppCompatActivity() {
         ) {
             checkPermission()
         }
-        dks = Dks(application, supportFragmentManager, object: DksListener {
-            override fun onDksLiveSpeechResult(liveSpeechResult: String) {
-                Log.d(application.packageName, "Speech result - $liveSpeechResult")
-            }
+        DKSCreation()
 
-            override fun onDksFinalSpeechResult(speechResult: String) {
-                Log.d(application.packageName, "Final speech result - $speechResult")
-                traitementResult(speechResult)
-            }
 
-            override fun onDksLiveSpeechFrequency(frequency: Float) {}
-
-            override fun onDksLanguagesAvailable(defaultLanguage: String?, supportedLanguages: ArrayList<String>?) {
-                Log.i("test", "defaultLanguage - $defaultLanguage")
-                Log.i("test", "supportedLanguages - $supportedLanguages")
-
-                if (supportedLanguages != null && supportedLanguages.contains("fr-FR")) {
-                    // Setting the speech recognition language to english india if found
-                    dks.currentSpeechLanguage = "fr-FR"
-                }
-            }
-
-            override fun onDksSpeechError(errMsg: String) {
-                Toast.makeText(application, errMsg, Toast.LENGTH_SHORT).show()
-            }
-        })
     }
 
-    private fun AfficherContenuOeuvre(id:String){
+    private fun AfficherContenuOeuvre(id: String){
         job = activityScope.launch {
             try {
                 val oeuvre = db.getOeuvreById(id.toLong())
@@ -115,69 +98,107 @@ class InformationsActivity: AppCompatActivity() {
         t.show()
     }
 
-    private fun toScan(idParcours:String){
+    private fun toScan(idParcours: String){
         job = activityScope.launch {
             try {
                 //On récupère l'id de la première oeuvre du parcours choisi
                 val parcours : ParcoursWithOeuvres = db.getParcoursWithOeuvresById(idParcours.toLong())
                 val Oeuvres:List<Oeuvre> = parcours.oeuvres
                 var ordre:Int = 0
+                var fin:Boolean = false
                 for (i in Oeuvres.indices){
+                    Log.i("PROJET",idOeuvre)
+                    Log.i("PROJET",Oeuvres[i].oeuvreId.toString())
                     if (Oeuvres[i].oeuvreId == idOeuvre.toLong()){
-                        ordre = i+1
+                        if (i==Oeuvres.lastIndex){
+                            fin=true
+                            alerter("fin")
+                        }else{
+                            ordre = i+1
+                            alerter("pas fin")
+                        }
                     }
                 }
-                val idFirstOeuvre:Long = Oeuvres[ordre].oeuvreId
-                val direction:String = Oeuvres[ordre].position
-                // Fabrication d'un Bundle de données
-                val bdl = Bundle()
-                bdl.putString("idParcours", idParcours)
-                bdl.putString("idNextOeuvre", idFirstOeuvre.toString())
-                bdl.putString("direction", direction)
-                // Changer d'activité
-                val versScan: Intent
-                // Intent explicite
-                versScan = Intent(this@InformationsActivity, ScanActivity::class.java)
-                // Ajout d'un bundle à l'intent
-                versScan.putExtras(bdl)
-                startActivity(versScan)
+                if (fin){
+                    val versFin: Intent
+                    versFin = Intent(this@InformationsActivity, FinParcours::class.java)
+                    startActivity(versFin)
+                }else{
+
+                    //récupération de l'id de l'oeuvre suivante et de sa direction
+                    val idNextOeuvre:Long = Oeuvres[ordre].oeuvreId
+                    val directionNextOeuvre:String = db.getPosition(idOeuvre.toLong(),idNextOeuvre).toString()
+                    // Fabrication d'un Bundle de données
+                    val bdl = Bundle()
+                    bdl.putString("idParcours", idParcours)
+                    bdl.putString("idNextOeuvre", idNextOeuvre.toString())
+                    bdl.putString("direction", directionNextOeuvre)
+                    // Changer d'activité
+                    val versScan: Intent
+                    // Intent explicite
+                    versScan = Intent(this@InformationsActivity, ScanActivity::class.java)
+                    // Ajout d'un bundle à l'intent
+                    versScan.putExtras(bdl)
+                    startActivity(versScan)
+                }
             } catch (e: Exception) {
                 Log.e("database", e.message.toString())
             }
         }
     }
 
+    private fun DKSCreation(){
+
+        dks = Dks(application, supportFragmentManager, object : DksListener {
+            override fun onDksLiveSpeechResult(liveSpeechResult: String) {
+                Log.d(application.packageName, "Speech result - $liveSpeechResult")
+            }
+
+            override fun onDksFinalSpeechResult(speechResult: String) {
+                Log.d(application.packageName, "Final speech result - $speechResult")
+                traitementResultInfo(speechResult)
+            }
+
+            override fun onDksLiveSpeechFrequency(frequency: Float) {}
+
+            override fun onDksLanguagesAvailable(
+                defaultLanguage: String?,
+                supportedLanguages: ArrayList<String>?
+            ) {
+                Log.i("test", "defaultLanguage - $defaultLanguage")
+                Log.i("test", "supportedLanguages - $supportedLanguages")
+
+                if (supportedLanguages != null && supportedLanguages.contains("fr-FR")) {
+                    // Setting the speech recognition language to english india if found
+                    dks.currentSpeechLanguage = "fr-FR"
+                }
+            }
+
+            override fun onDksSpeechError(errMsg: String) {
+                Toast.makeText(application, errMsg, Toast.LENGTH_SHORT).show()
+            }
+        })
+        dks.continuousSpeechRecognition = true
+        dks.startSpeechRecognition()
+
+    }
+/*
+    override fun onResume(){
+        super.onResume()
+        DKSCreation()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i("onStop","STOP")
+        dks.closeSpeechOperations()
+        dks.continuousSpeechRecognition = false
+
+    }
+*/
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    fun traitementResult(speechResult:String){
+    fun traitementResultInfo(speechResult:String){
         var separateSpeechResult :ArrayList<String> = ArrayList()
         var currentword :String =""
         for(k in 0..(speechResult.length -1)){
@@ -199,71 +220,47 @@ class InformationsActivity: AppCompatActivity() {
             }
         }
 
-        var choix :Boolean = false
-        var parcours: Boolean = false
-        var numero: Int? = null
         var passer : Boolean = false
         var oeuvre : Boolean = false
         var precision : Boolean = false
 
 
-        for(k in 0..(separateSpeechResult.size -1)){
+        for(k in 0..(separateSpeechResult.size -1)) {
 
-            var current: String = ""
-            for(j in separateSpeechResult[k]){
-                current += j
-                if(current == "choi"){
-                    //Log.i("Traitement","il y a un choi: \t ${separateSpeechResult[k]}")
-                    choix = true
+                var current: String = ""
+                for (j in separateSpeechResult[k]) {
+                    current += j
+                     if (current == "pass" || current == "suiva" || current == "suiva") {
+                        //Log.i("Traitement","il y a un passe: \t ${separateSpeechResult[k]}")
+                        passer = true
+                    } else if (current == "oeuvre" || current == "œuvre") {
+                        //Log.i("Traitement","il y a une œuvre: \t ${separateSpeechResult[k]}")
+                        oeuvre = true
+                    } else if (current == "precis" || current == "précis" || current == "descri") {
+                        //Log.i("Traitement","il y a une précision: \t ${separateSpeechResult[k]}")
+                        precision = true
+                    }
                 }
-                else if (current == "parcou"){
-                    // Log.i("Traitement","il y a un parcours: \t ${separateSpeechResult[k]}")
-                    parcours = true
-                }
-                else if(current =="un" || current == "hein" || current == "1"){
-                    //Log.i("Traitement","il y a un numero 1: \t ${separateSpeechResult[k]}")
-                    numero = 1
-                }
-                else if(current =="de" || current == "deux" || current == "2"){
-                    // Log.i("Traitement","il y a un numero 1: \t ${separateSpeechResult[k]}")
-                    numero = 2
-                }
-                else if(current == "pass" || current == "suiva"){
-                    //Log.i("Traitement","il y a un passe: \t ${separateSpeechResult[k]}")
-                    passer = true
-                }
-                else if(current == "oeuvre" || current == "œuvre" ){
-                    //Log.i("Traitement","il y a une œuvre: \t ${separateSpeechResult[k]}")
-                    oeuvre = true
-                }
-                else if(current=="precis" || current=="précis" || current == "descri"){
-                    //Log.i("Traitement","il y a une précision: \t ${separateSpeechResult[k]}")
-                    precision = true
+                if (k <= (separateSpeechResult.size - 2)) {
+                    //Log.i("traitement","k<2 et on a : ${separateSpeechResult[k]} \${separateSpeechResult[k+1]")
+                    if (separateSpeechResult[k] == "le" && separateSpeechResult[k + 1] == "vent") {
+                        //Log.i("traitement", "lol le vent: ${separateSpeechResult[k]} ${separateSpeechResult[k+1]}")
+                        oeuvre = true
+                    }
                 }
 
-            }
-            if(k <= (separateSpeechResult.size -2)  ){
-                //Log.i("traitement","k<2 et on a : ${separateSpeechResult[k]} \${separateSpeechResult[k+1]")
-                if(separateSpeechResult[k] == "le" && separateSpeechResult[k+1] == "vent"){
-                    //Log.i("traitement", "lol le vent: ${separateSpeechResult[k]} ${separateSpeechResult[k+1]}")
-                    oeuvre = true
-                }
-            }
         }
-        if(choix && parcours && numero!=null){
-            return onResult(numero)
-            //alerter("choix du parcours $numero")
-        }
-        else if(passer && oeuvre){
+
+        if(passer && oeuvre){
             //alerter("on passe à l'oeuvre suivante")
-            return onResult(GO_NEXT_OEUVRE)
+            return onResult(MainActivity.GO_NEXT_OEUVRE)
         }
         else if(oeuvre && precision){
             //alerter("précisions sur l'oeuvre")
-            return onResult(PRECISION_OEUVRE)
+            return onResult(MainActivity.PRECISION_OEUVRE)
         }
         else{
-            return onResult(NO_CORREESPONDANCE)
+            return onResult(MainActivity.NO_CORREESPONDANCE)
         }
 
 
@@ -297,25 +294,24 @@ class InformationsActivity: AppCompatActivity() {
         }
     }
 
-    fun onResult(STATE : Int?){
-        if(STATE == CHOIX_PARCOURS_1){
-            alerter("choix du parcours 1")
+    fun onResult(STATE: Int?){
+
+        if(STATE == GO_NEXT_OEUVRE){
+            alerter("oeuvre suivante")
             dks.closeSpeechOperations()
-        }
-        else if(STATE == CHOIX_PARCOURS_2){
-            alerter("choix du parcours 2")
-            dks.closeSpeechOperations()
-        }
-        else if(STATE == GO_NEXT_OEUVRE){
+            dks.continuousSpeechRecognition = false
             toScan(idParcours)
         }
         else if(STATE == PRECISION_OEUVRE){
+            dks.startSpeechRecognition()
+            dks.continuousSpeechRecognition = true
             alerter("précisions sur l'oeuvre")
-            //ToDo( quand on veut des précisions sur l'oeuvre)
+            description.setVisibility(View.VISIBLE)
         }
         else if(STATE == NO_CORREESPONDANCE){
+            dks.startSpeechRecognition()
+            dks.continuousSpeechRecognition = true
             alerter("aucune correspondance, veuillez réessayer")
-
         }
     }
 

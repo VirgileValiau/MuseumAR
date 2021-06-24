@@ -5,6 +5,7 @@ import androidx.room.Room
 import com.ec.MuseumAR.data.database.MuseumRoomDatabase
 import com.ec.MuseumAR.data.model.Oeuvre
 import com.ec.MuseumAR.data.model.Parcours
+import com.ec.MuseumAR.data.model.ParcoursOeuvreCrossRef
 
 class DbDataProvider (
     val application: Application
@@ -17,6 +18,8 @@ class DbDataProvider (
     private val oeuvresDao = roomDatabase.oeuvreDao()
     private val parcoursDao = roomDatabase.parcoursDao()
     private val parcoursWithOeuvresDao = roomDatabase.parcoursWithOeuvresDao()
+    private val positionDao = roomDatabase.positionDao()
+    private val parcoursOeuvreCrossRefDao = roomDatabase.parcoursOeuvreCrossRefDao()
 
     suspend fun getAllOeuvres() = oeuvresDao.getAllOeuvres()
 
@@ -33,4 +36,10 @@ class DbDataProvider (
     suspend fun getAllParcoursWithOeuvres() = parcoursWithOeuvresDao.getAllParcoursWithOeuvres()
 
     suspend fun getParcoursWithOeuvresById(parcoursId: Long) = parcoursWithOeuvresDao.getParcoursWithOeuvresById(parcoursId)
+
+    suspend fun getPosition(fromId: Long, toId: Long) = positionDao.getPosition(fromId, "to$toId")
+
+    suspend fun addNewRelations(newRelations: List<ParcoursOeuvreCrossRef>) = parcoursOeuvreCrossRefDao.addNewRelations(newRelations)
+
+    suspend fun deleteRelation(parcoursId: Long, oeuvreId: Long) = parcoursOeuvreCrossRefDao.deleteRelation(parcoursId, oeuvreId)
 }
